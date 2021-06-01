@@ -14,7 +14,10 @@ class Category_model extends CI_Model {
     }
     public function get_all_category()
     {
-        $data =  $this->db->get("category");
+        $data =  $this->db->select("c.id, c.name, count(p.id) as amount")
+        ->join("product p", "c.id = p.c_id", "left")
+        ->group_by("c.id")
+        ->get("category c");
         return $data->result();
     }
     public function get_category_id($id)
