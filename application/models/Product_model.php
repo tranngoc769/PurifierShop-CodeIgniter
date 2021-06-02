@@ -67,7 +67,7 @@ class Product_model extends CI_Model {
     
     public function get_product_id($id)
     {
-        $data =  $this->db->select("p.id, p.price, c.name, p.description, p.detail, p.c_id")
+        $data =  $this->db->select("p.id, p.price, p.name, c.name as c_name, p.description, p.detail, p.c_id")
         ->join("category c", "c.id = p.c_id")
         ->where("p.id = ".$id)
         ->limit(1)

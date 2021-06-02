@@ -39,8 +39,7 @@
                   <div id="custom_html-2" class="widget_text col pb-0 widget widget_custom_html">
                      <span class="widget-title">BẢN ĐỒ</span>
                      <div class="is-divider small"></div>
-                     <div class="textwidget custom-html-widget"><iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3726.4637663821745!2d106.31463400000001!3d20.933883!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x8dc675a02da3beb1!2zVHJ1bmcgdMOibSBtw6F5IGzhu41jIG7GsOG7m2MgS0FST0ZJ!5e0!3m2!1svi!2sus!4v1550855220256"
-                        width="100%" height="250" frameborder="0" style="border:0" allowfullscreen></iframe></div>
+                     <div class="textwidget custom-html-widget"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62706.48474686107!2d106.71168150000003!3d10.799415399999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175292fe33e6ca3%3A0x30a1cbb2b5d98dbf!2zQ8O0bmcgdmnDqm4gSG_DoG5nIFbEg24gVGjhu6U!5e0!3m2!1svi!2s!4v1622625378942!5m2!1svi!2s" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe></div>
                   </div>
                </div>
             </div>

@@ -10,7 +10,9 @@ class Account extends CI_Controller
     }
     public function index()
     {
+        $this->load->view('layout/admin_head.php');
         $this->load->view('admin/login');
+        $this->load->view('layout/admin_footer.php');
     }
     public function login()
     {
@@ -21,7 +23,12 @@ class Account extends CI_Controller
             "password" => $password,
         ];
         $result = $this->account_model->login($data);
-        return redirect('/admin/dichvu');
+        if ($result){
+            return redirect('/admin/index');
+        }
+        else{
+            return redirect('/account/index');
+        }
     }
     public function tuvan()
     {

@@ -20,7 +20,11 @@ class Admin extends My_Controller
         // $this->loadSidebar(null, null);
         // $this->load->view('admin/dashboard', $data);
         // $this->load->view('layout/dashboard/footer');
-        redirect('admin/dichvu');
+        $this->load->view('layout/admin_head.php');
+        $this->load->view('layout/admin_nav.php');
+        $this->load->view('layout/admin_side.php');
+        $this->load->view('admin/index');
+        $this->load->view('layout/admin_footer.php');
     }
     
     public function mucchi()

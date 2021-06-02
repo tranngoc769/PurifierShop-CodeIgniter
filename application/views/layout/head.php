@@ -16,6 +16,9 @@
       </script>
       <title>MÁY LỌC NƯỚC KAROFI - ĐẠI LÝ ỦY QUYỀN TẠI <?= $keywords['name'] ?></title>
       <style>
+      .chaty-widget{
+         bottom: 100px !important;
+      }
          .wishlist_table .add_to_cart,
          a.add_to_wishlist.button.alt {
          border-radius: 16px;
@@ -23,18 +26,18 @@
          -webkit-border-radius: 16px;
          }
       </style>
-      <meta name="description" content="Trung Tâm Máy Lọc Nước KAROFI | Số 207, Ngô Quyền, TP.<?= $keywords['name'] ?> | Hotline: <?=$keywords['hotline']?> - 19006418 |Vận Chuyển, Lắp Đặt, Bảo Hành miễn phí." />
+      <meta name="description" content="Trung Tâm Máy Lọc Nước KAROFI | Số 207, Ngô Quyền, TP.<?= $keywords['name'] ?> | Hotline: <?=$keywords['hotline']?> - <?=$keywords['hotline']?> |Vận Chuyển, Lắp Đặt, Bảo Hành miễn phí." />
       <link rel="canonical" href="index.html" />
       <meta property="og:locale" content="vi_VN" />
       <meta property="og:type" content="website" />
       <meta property="og:title" content="MÁY LỌC NƯỚC KAROFI - ĐẠI LÝ ỦY QUYỀN TẠI <?= strtoupper($keywords['name']) ?>" />
-      <meta property="og:description" content="Trung Tâm Máy Lọc Nước KAROFI | Số 207, Ngô Quyền, TP.<?= $keywords['name'] ?> | Hotline: <?=$keywords['hotline']?> - 19006418 |Vận Chuyển, Lắp Đặt, Bảo Hành miễn phí." />
+      <meta property="og:description" content="Trung Tâm Máy Lọc Nước KAROFI | Số 207, Ngô Quyền, TP.<?= $keywords['name'] ?> | Hotline: <?=$keywords['hotline']?> - <?=$keywords['hotline']?> |Vận Chuyển, Lắp Đặt, Bảo Hành miễn phí." />
       <meta property="og:url" content="https://karofihaiduong.vn/" />
       <meta property="og:site_name" content="MÁY LỌC NƯỚC KAROFI - ĐẠI LÝ ỦY QUYỀN TẠI <?= strtoupper($keywords['name']) ?>" />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:description" content="Trung Tâm Máy Lọc Nước KAROFI | Số 207, Ngô Quyền, TP.<?= $keywords['name'] ?> | Hotline: <?=$keywords['hotline']?> - 19006418 |Vận Chuyển, Lắp Đặt, Bảo Hành miễn phí." />
+      <meta name="twitter:description" content="Trung Tâm Máy Lọc Nước KAROFI | Số 207, Ngô Quyền, TP.<?= $keywords['name'] ?> | Hotline: <?=$keywords['hotline']?> - <?=$keywords['hotline']?> |Vận Chuyển, Lắp Đặt, Bảo Hành miễn phí." />
       <meta name="twitter:title" content="MÁY LỌC NƯỚC KAROFI - ĐẠI LÝ ỦY QUYỀN TẠI <?= strtoupper($keywords['name']) ?>" />
-      <script type='application/ld+json'>
+      <!-- <script type='application/ld+json'>
          {
              "@context": "https://schema.org",
              "@type": "WebSite",
@@ -47,8 +50,8 @@
                  "query-input": "required name=search_term_string"
              }
          }
-      </script>
-      <script type='application/ld+json'>
+      </script> -->
+      <!-- <script type='application/ld+json'>
          {
              "@context": "https://schema.org",
              "@type": "Organization",
@@ -58,7 +61,7 @@
              "name": "M\u00c1Y L\u1eccC N\u01af\u1edaC KAROFI - \u0110\u1ea0I L\u00dd \u1ee6Y QUY\u1ec0N T\u1ea0I H\u1ea2I D\u01af\u01a0NG",
              "logo": "https://karofihaiduong.vn/wp-content/uploads/2019/02/logo.jpg"
          }
-      </script>
+      </script> -->
       <link rel='dns-prefetch' href='http://ajax.googleapis.com/' />
       <link rel='dns-prefetch' href='http://cdnjs.cloudflare.com/' />
       <link rel='dns-prefetch' href='http://s.w.org/' />
@@ -253,7 +256,7 @@
                      "is_default_open": 0
                  }],
                  "pos_side": "right",
-                 "bot": "25",
+                 "bot": "100",
                  "side": "25",
                  "device": "desktop_active mobile_active",
                  "color": "#A886CD",
@@ -267,7 +270,6 @@
                  "save_user_clicks": 0,
                  "close_img": "",
                  "is_mobile": 0,
-                 "ajax_url": "https:\/\/karofihaiduong.vn\/wp-admin\/admin-ajax.php",
                  "animation_class": "",
                  "time_trigger": "yes",
                  "trigger_time": "0",
@@ -281,7 +283,6 @@
                  "has_close_button": "yes",
                  "mode": "vertical"
              },
-             "ajax_url": "https:\/\/karofihaiduong.vn\/wp-admin\/admin-ajax.php"
          };
          /* ]]> */
       </script>
@@ -475,9 +476,8 @@
          }
          span.amount {
          white-space: nowrap;
-         color: #23b1e5;
          font-weight: bold;
-         font-size: 16px;
+         font-size: 24px;
          }
          del span.amount {
          opacity: .9;
@@ -636,8 +636,7 @@
                      <div class="flex-col hide-for-medium flex-right">
                         <ul class="header-nav header-nav-main nav nav-right  nav-divided nav-spacing-xlarge nav-uppercase">
                            <li class="header-divider"></li>
-                           <li class="html custom html_topbar_right"><span style="font-size:140%;"><i class="icon-phone"></i> Hotline: <a href="0937.557.html" style="
-                              color: #fff;
+                           <li class="html custom html_topbar_right"><span style="font-size:140%;"><i class="icon-phone"></i> Hotline: <a href="tel:<?=$keywords['hotline']?>" style="color: #fff;
                               "><?=$keywords['hotline']?></a></span></li>
                         </ul>
                      </div>
