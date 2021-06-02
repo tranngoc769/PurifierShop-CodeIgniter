@@ -3,7 +3,7 @@
     <div class="page-title-inner flex-row  medium-flex-wrap container">
         <div class="flex-col flex-grow medium-text-center">
             <div class="is-large">
-                <nav class="woocommerce-breadcrumb breadcrumbs"><a href="../../index.html">Trang chủ</a> <span class="divider">&#47;</span> <a href="../../san-pham/index.html">Sản phẩm</a> <span class="divider">&#47;</span> MÁY LỌC NƯỚC KAROFI</nav>
+                <nav class="woocommerce-breadcrumb breadcrumbs"><a href="/">Trang chủ</a> <span class="divider">&#47;</span> <a href="/index.php/category?id=0">Sản phẩm</a> <span class="divider">&#47;</span> MÁY LỌC NƯỚC KAROFI</nav>
             </div>
             <div class="category-filtering category-filter-row show-for-medium">
                 <a href="#" data-open="#shop-sidebar" data-visible-after="true" data-pos="left" class="filter-button uppercase plain">
@@ -42,6 +42,8 @@
                 <aside id="woocommerce_product_categories-13" class="widget woocommerce widget_product_categories"><span class="widget-title shop-sidebar">CHUYÊN MỤC</span>
                     <div class="is-divider small"></div>
                     <ul class="product-categories">
+                        <li class="cat-item cat-item-90  <?php if ('0' == $cur_category || 0 == $cur_category) : ?>current-cat cat-parent active<?php endif; ?>"><a href="/index.php/category?id=0">Tất cả</a>
+                        </li>
                         <?php foreach ($categories as $i => $ct) : ?>
                             <li class="cat-item cat-item-90  <?php if ($ct->id == $cur_category) : ?>current-cat cat-parent active<?php endif; ?>"><a href="/index.php/category?id=<?= $ct->id ?>"><?= $ct->name ?></a>
                             </li>
@@ -68,7 +70,7 @@
                                 <div class="product-small box ">
                                     <div class="box-image">
                                         <div class="image-fade_in_back">
-                                            <a href="../../san-pham/may-loc-nuoc-karofi-kaq-u95/index.html">
+                                            <a href="/index.php/product?id=<?= $prod->id ?>">
                                                 <img width="300" height="300" src="<?= $prod->path ?>" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" srcset="<?= $prod->path ?>g 300w, <?= $prod->path ?> 280w,<?= $prod->path ?> 400w, <?= $prod->path ?> 600w, <?= $prod->path ?> 100w" sizes="(max-width: 300px) 100vw, 300px" /><img width="300" height="300" src="<?= $prod->path ?>" class="show-on-hover absolute fill hide-for-small back-image" alt="" srcset="<?= $prod->path ?> 300w, <?= $prod->path ?> 280w, <?= $prod->path ?> 400w,<?= $prod->path ?> 600w, <?= $prod->path ?> 100w" sizes="(max-width: 300px) 100vw, 300px" /> </a>
                                         </div>
                                         <div class="image-tools is-small top right show-on-hover">
@@ -76,28 +78,12 @@
                                                 <button class="wishlist-button button is-outline circle icon">
                                                     <i class="icon-heart"></i> </button>
                                                 <div class="wishlist-popup dark">
-
                                                     <div class="yith-wcwl-add-to-wishlist add-to-wishlist-1352">
                                                         <div class="yith-wcwl-add-button show" style="display:block">
-
-
                                                             <a href="index76d1.html?add_to_wishlist=1352" rel="nofollow" data-product-id="1352" data-product-type="simple" class="add_to_wishlist">
                                                                 Add to Wishlist</a>
                                                             <img src="../../wp-content/plugins/yith-woocommerce-wishlist/assets/images/wpspin_light.gif" class="ajax-loading" alt="loading" width="16" height="16" style="visibility:hidden" />
                                                         </div>
-
-                                                        <div class="yith-wcwl-wishlistaddedbrowse hide" style="display:none;">
-                                                            <span class="feedback">Product added!</span>
-                                                            <a href="../../san-pham/may-loc-nuoc-karofi-kaq-u95/index.html" rel="nofollow">
-                                                                Browse Wishlist </a>
-                                                        </div>
-
-                                                        <div class="yith-wcwl-wishlistexistsbrowse hide" style="display:none">
-                                                            <span class="feedback">The product is already in the wishlist!</span>
-                                                            <a href="../../san-pham/may-loc-nuoc-karofi-kaq-u95/index.html" rel="nofollow">
-                                                                Browse Wishlist </a>
-                                                        </div>
-
                                                         <div style="clear:both"></div>
                                                         <div class="yith-wcwl-wishlistaddresponse"></div>
 

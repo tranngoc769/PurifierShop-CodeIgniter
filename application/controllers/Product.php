@@ -1,5 +1,5 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-class Category extends My_Controller
+class Product extends My_Controller
 {
     public function __construct() {
         parent::__construct();
@@ -8,26 +8,16 @@ class Category extends My_Controller
         $this->load->model('setting_model');
     }
     public function index() {
-        $c_id = $_GET['id'];
-        if (!isset($c_id)){
-            $c_id = 12;
+        $p_id = $_GET['id'];
+        if (!isset($p_id)){
+            return redirect("./");
         }
-        $page = $_GET['page'];
-        if (!isset($page)){
-            $page = 1;
+        if (!$this->product_model->check_product_exist($p_id)){
+            return redirect("./");
         }
-        $orderby = $_GET['orderby'];
-        if (!isset($orderby)){
-            $orderby = "asc";
-        }
-        $limit = 9;
         $kw = $this->setting_model->get_all_keywords();
-        $products = $this->product_model->get_cate_product($c_id,$page, $limit, $orderby);
         $default_images = $this->setting_model->get_all_default_images();
         $categories = $this->category_model->get_all_category();
-        $total_product_category = $this->product_model->count_category_products($c_id);
-        $total_page = ceil($total_product_category  / $limit);
-        // 
         $keywords  = array();
         $default_images_arr = array();
         for ($i=0; $i < count($kw); $i++) { 
@@ -36,25 +26,35 @@ class Category extends My_Controller
         for ($i=0; $i < count($default_images); $i++) {
             $default_images_arr[$default_images[$i]->name]  = $default_images[$i]->path;
         }
+        // PRODUCTS
+        $product_images = $this->product_model->get_product_images($p_id);
+        $product = $this->product_model->get_product_id($p_id);
+        // 
+        $des = $product->description;
+        $des_arr = explode("|",$des);
+        
+        $descriptions  = array();
+        for ($i=0; $i < count($des_arr); $i++) { 
+            $tmp = explode(":",$des_arr[$i]);
+            $unit[0] = trim(str_replace("\"", "", $tmp[0]));
+            $unit[1] = trim(str_replace("\"", "", $tmp[1]));
+            $descriptions[$i] = $unit;
+        }
+        // 
         // $products = $this->product_model->get_all_product();
-        $data['cur_category'] = $c_id; 
         $data['keywords'] = $keywords;
+
         $data['categories'] = $categories;
-        $data['products'] = $products;
         $data['default_images'] = $default_images;
         $data['default_images_arr'] = $default_images_arr;
-        // PAGING
-        $data['limit'] = $limit;
-        $data['total'] = $total_page;
-        $data['total_product_category'] = $total_product_category;
-        $data['page'] = $page;
-        $data['orderby'] = $orderby;
-        
-        // $data['products'] = $products;
+        // 
+        $data['product_images'] = $product_images;
+        $data['descriptions'] = $descriptions;
+        $data['product'] = $product;
         $config['base_url'] = site_url('shop/index');
         $active['title'] = " - Home";
         $this->load->view('layout/head', $data);
-        $this->load->view('pages/category');
+        $this->load->view('pages/product');
         $this->load->view('layout/footer', $data);
     }
 }

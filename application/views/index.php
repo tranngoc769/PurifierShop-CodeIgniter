@@ -61,7 +61,7 @@
                   <?php foreach ($categories as $i => $ct) : ?>
                   <div class="product-category col">
                      <div class="col-inner">
-                        <a href="danh-muc/cay-nuoc-nong-lanh/index.html">
+                        <a href="/index.php/category?id=<?=$ct->id?>">
                            <div class="box box-category has-hover box-bounce ">
                               <div class="box-image">
                                  <div class="">
@@ -101,7 +101,7 @@
                         <div class="product-small box ">
                            <div class="box-image">
                               <div class="image-fade_in_back">
-                                 <a href="san-pham/may-loc-nuoc-karofi-kaq-u95/index.html">
+                              <a href="index.php/product?id=<?= $prod->p_id ?>">
                                  <img width="300" height="300" src="<?=$prod->path?>" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" srcset="<?=$prod->path?> 300w, <?=$prod->path?> 280w, <?=$prod->path?> 400w, <?=$prod->path?> 600w, <?=$prod->path?> 100w"
                                     sizes="(max-width: 300px) 100vw, 300px" /><img width="300" height="300" src="<?=$prod->path?>" class="show-on-hover absolute fill hide-for-small back-image"
                                     alt="" srcset="<?=$prod->path?> 300w"
@@ -114,7 +114,7 @@
                                     <div class="wishlist-popup dark">
                                        <div class="yith-wcwl-add-to-wishlist add-to-wishlist-1352">
                                           <div class="yith-wcwl-add-button show" style="display:block">
-                                             <a href="index76d1.html?add_to_wishlist=1352" rel="nofollow" data-product-id="1352" data-product-type="simple" class="add_to_wishlist">
+                                          <a href="index.php/product?id=<?= $prod->p_id ?>" rel="nofollow" data-product-id="1352" data-product-type="simple" class="add_to_wishlist">
                                              Xem</a>
                                              <img src="/style/wp-content/plugins/yith-woocommerce-wishlist/assets/images/wpspin_light.gif" class="ajax-loading" alt="loading" width="16" height="16" style="visibility:hidden" />
                                           </div>

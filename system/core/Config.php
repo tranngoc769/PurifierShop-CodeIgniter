@@ -98,7 +98,7 @@ class CI_Config {
 			}
 			else
 			{
-				$base_url = 'https://1fc11c8460e2.ngrok.io/';
+				$base_url = 'https://localhost/';
 			}
 
 			$this->set_item('base_url', $base_url);

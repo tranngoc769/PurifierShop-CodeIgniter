@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-$config['base_url'] = 'https://1fc11c8460e2.ngrok.io/';
+$config['base_url'] = 'https://localhost/';
 $config['index_page'] = 'index.php';
 $config['uri_protocol']	= 'REQUEST_URI';
 $config['url_suffix'] = '';
