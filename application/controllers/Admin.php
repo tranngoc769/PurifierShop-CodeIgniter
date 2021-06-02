@@ -5,28 +5,32 @@ class Admin extends My_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('user_model');
-        $this->load->model('account_model');
-        $this->load->model('category_model');
         $this->load->model('product_model');
     }
-    
+    // Dashboard
     public function index()
     {
         $this->gate_model->admin_gate();
+        
         // return;
         // $data['all_request'] = $this->user_model->get_upgrade_requests();
         // $this->load->view('layout/dashboard/header', array('title' => 'Admin Dashboard'));
         // $this->loadSidebar(null, null);
         // $this->load->view('admin/dashboard', $data);
         // $this->load->view('layout/dashboard/footer');
+        $total_product = $this->product_model->count_category_products(0);
+        $data['total_product'] = $total_product;
         $this->load->view('layout/admin_head.php');
         $this->load->view('layout/admin_nav.php');
         $this->load->view('layout/admin_side.php');
-        $this->load->view('admin/index');
+        // 
+        $this->load->view('admin/index',$data);
+        // 
         $this->load->view('layout/admin_footer.php');
     }
-    
+
+
+    // 
     public function mucchi()
     {
         $this->gate_model->admin_gate();
