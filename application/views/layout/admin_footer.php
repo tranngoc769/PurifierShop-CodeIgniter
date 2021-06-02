@@ -13,7 +13,10 @@
 
 <!-- init js -->
 <script src="/style/admin/assets/js/pages/form-editor.init.js"></script>
-
+<!-- apexcharts -->
+<script src="/style/admin/assets/libs/apexcharts/apexcharts.min.js"></script>
+<!-- dashboard blog init -->
+<script src="/style/admin/assets/js/pages/dashboard-blog.init.js"></script>
 <script src="/style/admin/assets/js/app.js"></script>
 </body>
 </html>
