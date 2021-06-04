@@ -75,12 +75,25 @@ class Product_model extends CI_Model {
 
         return $data->result()[0];
     }
-    // 
     public function create_product($data)
     {
-        return $this->db->insert('product', $data);
+        $isOk = $this->db->insert('product', $data);
+        if ($isOk){
+            return $this->db->insert_id();
+        }
+        return false;
     }
 
+    public function delete_product($cid){
+        return $this->db->where("id", $cid)->delete("product");
+    }
+    public function add_images($data)
+    {
+        $isOk = $this->db->insert('images', $data);
+        return $isOk;
+    }
+
+    // 
     public function update_product($id,$data)
     {
 		return $this->db->where("id", $id)->update('product', $data);
@@ -91,8 +104,5 @@ class Product_model extends CI_Model {
         ->join("product pd", "pd.cid = ct.id")
         ->get("category ct");
         return $data->result();
-    }
-    public function delete_product($cid){
-        return $this->db->where("id", $cid)->delete("product");
     }
 }

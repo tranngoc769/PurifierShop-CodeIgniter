@@ -102,8 +102,8 @@
                            <div class="box-image">
                               <div class="image-fade_in_back">
                               <a href="index.php/product?id=<?= $prod->p_id ?>">
-                                 <img width="300" height="300" src="<?=$prod->path?>" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" srcset="<?=$prod->path?> 300w, <?=$prod->path?> 280w, <?=$prod->path?> 400w, <?=$prod->path?> 600w, <?=$prod->path?> 100w"
-                                    sizes="(max-width: 300px) 100vw, 300px" /><img width="300" height="300" src="<?=$prod->path?>" class="show-on-hover absolute fill hide-for-small back-image"
+                                 <img style="width: 300px!importantheight: 300px !important;" width="300" height="300" src="<?=$prod->path?>" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" srcset="<?=$prod->path?> 300w, <?=$prod->path?> 280w, <?=$prod->path?> 400w, <?=$prod->path?> 600w, <?=$prod->path?> 100w"
+                                    sizes="(max-width: 300px) 100vw, 300px" /><img style="width: 300px!important;height: 300px !important;" width="300" height="300" src="<?=$prod->path?>" class="show-on-hover absolute fill hide-for-small back-image"
                                     alt="" srcset="<?=$prod->path?> 300w"
                                     sizes="(max-width: 300px) 100vw, 300px" /> </a>
                               </div>

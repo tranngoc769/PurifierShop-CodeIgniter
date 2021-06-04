@@ -6,6 +6,7 @@ class Admin extends My_Controller
     {
         parent::__construct();
         $this->load->model('product_model');
+        $this->load->model('category_model');
     }
     // Dashboard
     public function index()
@@ -28,7 +29,94 @@ class Admin extends My_Controller
         // 
         $this->load->view('layout/admin_footer.php');
     }
-
+   // Thêm sản phẩm
+   public function add_product()
+   {
+       $this->gate_model->admin_gate();
+       $categories = $this->category_model->get_all_category();
+       // return;
+       // $data['all_request'] = $this->user_model->get_upgrade_requests();
+       // $this->load->view('layout/dashboard/header', array('title' => 'Admin Dashboard'));
+       // $this->loadSidebar(null, null);
+       // $this->load->view('admin/dashboard', $data);
+       // $this->load->view('layout/dashboard/footer');
+       $this->load->view('layout/admin_head.php');
+       $this->load->view('layout/admin_nav.php');
+       $this->load->view('layout/admin_side.php');
+       // 
+       $data['categories'] = $categories;
+       $this->load->view('admin/add_product', $data);
+       // 
+    //    $this->load->view('layout/admin_footer.php');
+   }
+   public function add()
+   {
+      
+    $config['upload_path']          = './style/uploads/products/';
+    $config['allowed_types']        = 'jpeg|gif|jpg|png';
+    $config['max_size']             = 1000;
+    $config['max_width']            = 1000000;
+    $config['max_height']           = 1000000;
+    $this->load->library('upload', $config);
+    $err_up = "";
+    // 
+    $name = $this->input->post("name");
+    $price = $this->input->post("price");
+    $c_id = $this->input->post("category");
+    $description = $this->input->post("short");
+    $detail = $this->input->post("full");
+    $p_id = $this->product_model->create_product(array("name"=>$name,"price"=> $price,"c_id"=> $c_id,"description"=> $description,"detail"=> $detail));
+    if ($p_id==false){
+        $array = array(
+            "code" => 400,
+            "msg" => "Cannot insert"
+        );
+        header('Access-Control-Allow-Origin: *');
+        header('Content-Type: application/json');
+        echo json_encode($array);
+        return;
+    }
+    // 
+    $upload_path = "/style/uploads/products/";
+    $Uploaded_files = array();
+    $full_ok = true;
+    for ($i=0; $i <  count($_FILES); $i++) { 
+        $path =  $this->upload->do_upload('file'.$i);
+        if (!$path){
+            $full_ok = false;
+        }
+        else{
+            array_push($Uploaded_files,$upload_path.$path);
+        }
+    }
+    if ($full_ok){
+        for ($i=0; $i < count($Uploaded_files); $i++) { 
+            $up = array("path"=>$Uploaded_files[$i],"p_id"=> $p_id,"c_id"=> $c_id,"index"=> 0);
+            if ($i==0){
+                $up["index"] = 1;
+            }
+            $this->product_model->add_images($up);
+        }
+    }
+    else{
+        $array = array(
+            "code" => 400,
+            "msg" => "Upload images failed"
+        );
+        header('Access-Control-Allow-Origin: *');
+        header('Content-Type: application/json');
+        echo json_encode($array);
+        return;
+    }
+    $array = array(
+        "code" => 200,
+        "msg" => "OK"
+    );
+    header('Access-Control-Allow-Origin: *');
+    header('Content-Type: application/json');
+    echo json_encode($array);
+    return;
+   }
 
     // 
     public function mucchi()

@@ -580,7 +580,7 @@ class CI_Upload {
 		 */
 		$this->set_image_properties($this->upload_path.$this->file_name);
 
-		return TRUE;
+		return $this->file_name;
 	}
 
 	// --------------------------------------------------------------------

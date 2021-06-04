@@ -1354,6 +1354,11 @@
         </div>
         <!-- container-fluid -->
     </div>
+    
+<!-- apexcharts -->
+<script src="/style/admin/assets/libs/apexcharts/apexcharts.min.js"></script>
+<!-- dashboard blog init -->
+<script src="/style/admin/assets/js/pages/dashboard-blog.init.js"></script>
     <!-- End Page-content -->
     <footer class="footer">
         <div class="container-fluid">

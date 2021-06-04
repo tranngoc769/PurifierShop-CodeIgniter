@@ -11,8 +11,10 @@
     <meta content="<?= $title ?>" name="author" />
     <!-- App favicon -->
     <link rel="shortcut icon" href="/style/admin/assets/images/favicon.ico">
+    <link href="/style/admin/assets/libs/dropzone/min/dropzone.min.css" rel="stylesheet" type="text/css" />
     <link href="/style/admin/assets/libs/summernote/summernote-bs4.min.css" rel="stylesheet" type="text/css" />
     <link href="/style/admin/assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
     <link href="/style/admin/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
     <link href="/style/admin/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
