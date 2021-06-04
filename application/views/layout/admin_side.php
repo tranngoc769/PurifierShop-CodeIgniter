@@ -23,9 +23,18 @@
                                 <span key="t-ecommerce">Quản lý sản phẩm</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="products" key="t-products">Danh sách sản phẩm</a></li>
-                                <li><a href="add_product" key="t-orders">Thêm sản phẩm</a></li>
+                                    <li><a href="products" key="t-orders">Tất cả</a></li>
+                                    <?php foreach ($categories as $i => $cat) : ?>
+                                        <li><a href="products?id=<?=$cat->id?>" <?php if ($cat->id == $cur_category) : ?> class="active"<?php endif; ?>  key="t-orders"><?=$cat->name?></a></li>
+                                    <?php endforeach; ?>
                             </ul>
+                        </li>
+                        
+                        <li>
+                            <a href="add_product" class="waves-effect">
+                                <i class="bx bxs-eraser"></i>
+                                <span key="t-forms">Thêm bài viết</span>
+                            </a>
                         </li>
                         <li class="menu-title" key="t-pages">Blog</li>
                         <li>

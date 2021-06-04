@@ -19,11 +19,15 @@ class Admin extends My_Controller
         // $this->loadSidebar(null, null);
         // $this->load->view('admin/dashboard', $data);
         // $this->load->view('layout/dashboard/footer');
+        
+        $categories = $this->category_model->get_all_category();
         $total_product = $this->product_model->count_category_products(0);
         $data['total_product'] = $total_product;
+        $cate['cur_category'] = -1; 
+        $cate['categories'] = $categories;
         $this->load->view('layout/admin_head.php');
         $this->load->view('layout/admin_nav.php');
-        $this->load->view('layout/admin_side.php');
+        $this->load->view('layout/admin_side.php', $cate);
         // 
         $this->load->view('admin/index',$data);
         // 
@@ -34,17 +38,13 @@ class Admin extends My_Controller
    {
        $this->gate_model->admin_gate();
        $categories = $this->category_model->get_all_category();
-       // return;
-       // $data['all_request'] = $this->user_model->get_upgrade_requests();
-       // $this->load->view('layout/dashboard/header', array('title' => 'Admin Dashboard'));
-       // $this->loadSidebar(null, null);
-       // $this->load->view('admin/dashboard', $data);
-       // $this->load->view('layout/dashboard/footer');
+       $data['categories'] = $categories;
+       $cate['cur_category'] = -1;
+       $cate['categories'] = $categories;
        $this->load->view('layout/admin_head.php');
        $this->load->view('layout/admin_nav.php');
-       $this->load->view('layout/admin_side.php');
+       $this->load->view('layout/admin_side.php', $cate);
        // 
-       $data['categories'] = $categories;
        $this->load->view('admin/add_product', $data);
        // 
     //    $this->load->view('layout/admin_footer.php');
@@ -119,14 +119,39 @@ class Admin extends My_Controller
    }
 
     // 
-    public function mucchi()
+    public function products()
     {
         $this->gate_model->admin_gate();
         $categories = $this->category_model->get_all_category();
-        $this->load->view('layout/head');
-        $this->load->view('layout/side');
+        $c_id = $_GET['id'];
+        if (!isset($c_id)){
+            $c_id = 0;
+        }
+        $page = $_GET['page'];
+        if (!isset($page)){
+            $page = 1;
+        }
+        $orderby = $_GET['orderby'];
+        if (!isset($orderby)){
+            $orderby = "asc";
+        }
+        $limit = 2;
+        $products = $this->product_model->get_cate_product($c_id,$page, $limit, $orderby);
+        $categories = $this->category_model->get_all_category();
+        $total_product_category = $this->product_model->count_category_products($c_id);
+        $total_page = ceil($total_product_category  / $limit);
+        $cate['cur_category'] = $c_id; 
+        $cate['categories'] = $categories;
+        $data['products'] = $products;
+        $data['page'] = $page;
+        $data['total'] = $total_page;
+        $this->load->view('layout/admin_head.php');
+        $this->load->view('layout/admin_nav.php');
+        $this->load->view('layout/admin_side.php', $cate);
+        // 
         $data['categories'] = $categories;
-        $this->load->view('admin/add_product', $data);
+        $this->load->view('admin/products', $data);
+        $this->load->view('layout/admin_footer.php');
     }
     // Danh sách mục vhi
     public function dsmucchi()
