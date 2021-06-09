@@ -1,12 +1,21 @@
-Dropzone.autoDiscover = false;
+try {
+
+    Dropzone.autoDiscover = false;
+} catch (error) {
+
+}
 var dropzone;
 $(document).ready(function() {
     console.log("ready");
-    dropzone = new Dropzone("#dropzone", {
-        addRemoveLinks: true,
-        acceptedFiles: "image/*",
-        dictRemoveFile: "Loại bỏ"
-    });
+    try {
+        dropzone = new Dropzone("#dropzone", {
+            addRemoveLinks: true,
+            acceptedFiles: "image/*",
+            dictRemoveFile: "Loại bỏ"
+        });
+    } catch (error) {
+
+    }
     console.log(dropzone)
         // $(".note-editable")[0].innerHTML
     $("#addProperty").on("click", function() {
@@ -143,6 +152,43 @@ $(document).ready(function() {
                     swal("Thêm sản phẩm", "Thêm sản phẩm không thành công " + dt.msg, "erro");
                 } else {
                     swal("Thêm sản phẩm", "Thêm sản phẩm thành công", "success");
+                    location.reload();
+                }
+            });
+    })
+
+    $("#save_blog").on("click", function(e) {
+        e.preventDefault();
+        let title = $("#title").val();
+        if (title == "") {
+            swal("Thêm bài đăng", "Điền title", "error");
+            return;
+        }
+        let full_description = $(".note-editable")[0].innerHTML;
+        full_description = `<div class="product-info__slide">` + full_description + `</div>`
+        var formData = new FormData();
+        formData.append("title", title);
+        formData.append("detail", full_description);
+        var settings = {
+            url: "blog_add",
+            method: "POST",
+            timeout: 0,
+            processData: false,
+            mimeType: "multipart/form-data",
+            contentType: false,
+            data: formData,
+        };
+        $.ajax(settings)
+            .fail((result, status, error) => {
+                swal("Thêm bài viết", "Thêm bài viết không thành công", "error");
+
+            })
+            .success((result, status, error) => {
+                let dt = JSON.parse(result);
+                if (dt.code != 200) {
+                    swal("Thêm bài viết", "Thêm bài viết không thành công " + dt.msg, "erro");
+                } else {
+                    swal("Thêm bài viết", "Thêm bài viết thành công", "success");
                     location.reload();
                 }
             });

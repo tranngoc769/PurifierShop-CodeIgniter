@@ -33,12 +33,12 @@
                         <li>
                             <a href="add_product" class="waves-effect">
                                 <i class="bx bxs-eraser"></i>
-                                <span key="t-forms">Thêm bài viết</span>
+                                <span key="t-forms">Thêm sản phẩm</span>
                             </a>
                         </li>
                         <li class="menu-title" key="t-pages">Blog</li>
                         <li>
-                            <a href="javascript: void(0);" class="waves-effect">
+                            <a href="add_blog" class="waves-effect">
                                 <i class="bx bxs-eraser"></i>
                                 <span key="t-forms">Thêm bài viết</span>
                             </a>
