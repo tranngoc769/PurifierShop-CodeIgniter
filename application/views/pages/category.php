@@ -19,7 +19,7 @@
 
 
             <p class="woocommerce-result-count hide-for-medium">
-                Hiển thị <?= ($page-1) * $limit + 1 ?>&ndash;<?=($page) * $limit ?> trong <?= $total_product_category ?> kết quả</p>
+                Hiển thị <?= ($page - 1) * $limit + 1 ?>&ndash;<?= ($page) * $limit ?> trong <?= $total_product_category ?> kết quả</p>
             <form class="woocommerce-ordering" method="get">
                 <select name="orderby" class="orderby">
                     <option value="asc">Thứ tự theo giá: thấp đến cao</option>
@@ -27,7 +27,7 @@
                     <option value="desc">Thứ tự theo giá: cao xuống thấp</option>
                 </select>
                 <input type="hidden" name="page" value="1" />
-                <input type="hidden" name="id" value="<?=$cur_category?>" />
+                <input type="hidden" name="id" value="<?= $cur_category ?>" />
             </form>
         </div><!-- .flex-right -->
 
@@ -41,17 +41,37 @@
             <div id="shop-sidebar" class="sidebar-inner col-inner">
                 <aside id="woocommerce_product_categories-13" class="widget woocommerce widget_product_categories"><span class="widget-title shop-sidebar">CHUYÊN MỤC</span>
                     <div class="is-divider small"></div>
-                    <ul class="product-categories">
+                    <!-- OLE -->
+                    <!-- <ul class="product-categories">
                         <li class="cat-item cat-item-90  <?php if ('0' == $cur_category || 0 == $cur_category) : ?>current-cat cat-parent active<?php endif; ?>"><a href="/index.php/category?id=0">Tất cả</a>
                         </li>
                         <?php foreach ($categories as $i => $ct) : ?>
                             <li class="cat-item cat-item-90  <?php if ($ct->id == $cur_category) : ?>current-cat cat-parent active<?php endif; ?>"><a href="/index.php/category?id=<?= $ct->id ?>"><?= $ct->name ?></a>
                             </li>
                         <?php endforeach; ?>
+                    </ul> -->
+                    <ul class="product-categories">
+                        <?php $cur_parent = 1 ?>
+                        <?php foreach ($categoriesofparent as $k => $test) : ?>
+                            <?php foreach ($test as $j => $sub_cate_test) : ?>
+                                <?php if ($sub_cate_test->c_id == $cur_category) : ?>
+                                    <?php $cur_parent  =  $k  ?>
+                                    <?php break;?>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                        <?php endforeach; ?>
+                        <?php foreach ($categoriesofparent as $i => $parent) : ?>
+                            <?php if (count($parent) > 0) : ?>
+                                <li class="cat-item cat-item-90 <?php if ($cur_parent == $i) : ?>cat-parent has-child active<?php endif; ?>" aria-expanded="true"><a href="#"><?= $parent[0]->name ?></a><button class="toggle"></button>
+                                    <ul class="children">
+                                        <?php foreach ($parent as $j => $sub_cate) : ?>
+                                            <li class="cat-item cat-item-93 <?php if ($sub_cate->c_id == $cur_category) : ?>current-cat cat-parent active<?php endif; ?>"><a href=" /index.php/category?id=<?= $sub_cate->c_id ?>"><?= $sub_cate->c_name ?></a></li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                </li>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
                     </ul>
-                </aside>
-                <aside id="woocommerce_price_filter-9" class="widget woocommerce widget_price_filter">
-
                 </aside>
             </div><!-- .sidebar-inner -->
         </div><!-- #shop-sidebar -->
@@ -102,7 +122,7 @@
                                     <div class="box-text box-text-products">
                                         <div class="title-wrapper">
                                             <p class="category uppercase is-smaller no-text-overflow product-cat op-7">
-                                            <?= $prod->c_name ?> </p>
+                                                <?= $prod->c_name ?> </p>
                                             <p class="name product-title"><a href="../../san-pham/may-loc-nuoc-karofi-kaq-u95/index.html"><?= $prod->name ?></a></p>
                                         </div>
                                         <div class="price-wrapper">
@@ -118,10 +138,10 @@
                 <div class="container">
                     <nav class="woocommerce-pagination">
                         <ul class="page-numbers nav-pagination links text-center">
-                            <?php for ($i=1; $i <= $total; $i++): ?>
-                                <li><a class='page-number <?php if ($page == $i) : ?> current'<?php else: ?>' href="/index.php/category?id=<?=$cur_category?>&page=<?=$i?> <?php endif; ?>&orderby=<?=$orderby?>"><?=$i?></a></li>
+                            <?php for ($i = 1; $i <= $total; $i++) : ?>
+                                <li><a class='page-number <?php if ($page == $i) : ?> current' <?php else : ?>' href="/index.php/category?id=<?= $cur_category ?>&page=<?= $i ?> <?php endif; ?>&orderby=<?= $orderby ?>"><?= $i ?></a></li>
                             <?php endfor; ?>
-                            <?php if ($page < $total) : ?><li><a class="next page-number" href="/index.php/category?id=<?=$cur_category?>&page=<?=$page+1?>&orderby=<?=$orderby?>"><i class="icon-angle-right"></i></a></li><?php endif; ?>
+                            <?php if ($page < $total) : ?><li><a class="next page-number" href="/index.php/category?id=<?= $cur_category ?>&page=<?= $page + 1 ?>&orderby=<?= $orderby ?>"><i class="icon-angle-right"></i></a></li><?php endif; ?>
                         </ul>
                     </nav>
                 </div>

@@ -28,6 +28,16 @@ class Category extends My_Controller
         $categories = $this->category_model->get_all_category();
         $total_product_category = $this->product_model->count_category_products($c_id);
         $total_page = ceil($total_product_category  / $limit);
+        $categoriesofparent = $this->category_model->get_all_category_of_parent();
+        //
+        $parent_ct_arr = [];
+        for ($i=0; $i < count($categoriesofparent); $i++) { 
+            if ($parent_ct_arr[$categoriesofparent[$i]->id] == null){
+                $parent_ct_arr[$categoriesofparent[$i]->id] = [];
+            }
+            array_push($parent_ct_arr[$categoriesofparent[$i]->id],$categoriesofparent[$i]);
+        }
+        $data['categoriesofparent'] = $parent_ct_arr;
         // 
         $keywords  = array();
         $default_images_arr = array();

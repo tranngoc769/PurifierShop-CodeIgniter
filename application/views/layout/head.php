@@ -764,6 +764,7 @@
                         <?php endforeach; ?>
                         <li class="menu-item menu-item-type-post_type menu-item-object-post"><a href="/index.php/blog" class="nav-top-link">Chi sẻ kinh nghiệm</a></li>
                      </ul> -->
+                     <!-- <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-95 current_page_item active  menu-item-244"><a href="/" class="nav-top-link">Trang chủ</a></li> -->
                      <?php foreach ($categoriesofparent as $i => $parent) : ?>
                         <?php if (count($parent) > 0) : ?>
                            <li id="menu-item-418" class="menu-custom-image menu-item
@@ -787,6 +788,8 @@
                            </li>
                         <?php endif; ?>
                      <?php endforeach; ?>
+                     <li class="menu-item menu-item-type-post_type menu-item-object-post"><a href="/index.php/suachua" class="nav-top-link">Sửa chữa</a></li>
+                     <li class="menu-item menu-item-type-post_type menu-item-object-post"><a href="/index.php/blog" class="nav-top-link">Chia Sẻ Kinh Nghiệm</a></li>
                   </ul>
                   </div>
                   <div class="flex-col hide-for-medium flex-right flex-grow">

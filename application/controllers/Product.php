@@ -41,6 +41,16 @@ class Product extends My_Controller
             $unit[1] = trim(str_replace("\"", "", $tmp[1]));
             $descriptions[$i] = $unit;
         }
+        $categoriesofparent = $this->category_model->get_all_category_of_parent();
+        //
+        $parent_ct_arr = [];
+        for ($i=0; $i < count($categoriesofparent); $i++) { 
+            if ($parent_ct_arr[$categoriesofparent[$i]->id] == null){
+                $parent_ct_arr[$categoriesofparent[$i]->id] = [];
+            }
+            array_push($parent_ct_arr[$categoriesofparent[$i]->id],$categoriesofparent[$i]);
+        }
+        $data['categoriesofparent'] = $parent_ct_arr;
         // 
         // $products = $this->product_model->get_all_product();
         $data['keywords'] = $keywords;
