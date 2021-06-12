@@ -56,10 +56,10 @@
                                     <?php endforeach; ?>
                                 </figure>
 
-                                <div class="image-tools absolute bottom left z-3">
+                                <!-- <div class="image-tools absolute bottom left z-3">
                                     <a href="#product-zoom" class="zoom-button button is-outline circle icon tooltip hide-for-small" title="Zoom">
                                         <i class="icon-expand"></i> </a>
-                                </div>
+                                </div> -->
                             </div>
                             <div class="product-thumbnails thumbnails slider-no-arrows slider row row-small row-slider slider-nav-small small-columns-4" data-flickity-options='{
                                     "cellAlign": "left",

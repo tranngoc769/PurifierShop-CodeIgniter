@@ -24,17 +24,17 @@
                             <div class="form-group row">
                                 <label for="example-number-input" class="col-md-2 col-form-label">Giá sản phẩm</label>
                                 <div class="col-md-10">
-                                    <input class="form-control"  id="p_price"  value="11111111111"   type="number" step="50000"  required>
+                                    <input class="form-control" id="p_price" value="11111111111" type="number" step="50000" required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-md-2 col-form-label">Loại sản phẩm</label>
                                 <div class="col-md-10">
-                                    <select  id="p_category" class="form-control"  required>
-                                    <?php foreach ($categories as $i => $cat) : ?>
-                                        <option value="<?= $cat->id ?>"><?= $cat->name ?></option>
-                                    
-                                    <?php endforeach; ?>
+                                    <select id="p_category" class="form-control" required>
+                                        <?php foreach ($categories as $i => $cat) : ?>
+                                            <option value="<?= $cat->id ?>"><?= $cat->name ?></option>
+
+                                        <?php endforeach; ?>
                                     </select>
                                 </div>
                             </div>
@@ -43,69 +43,69 @@
                 </div> <!-- end col -->
             </div>
             <div class="row">
-                            <div class="col-12">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h4 class="card-title">Thông tin cấu hình</h4>
-                                        <div class="table-responsive">
-                                            <table  class="table table-striped table-nowrap mb-0" id="thongsoTable">
-                                                <thead>
-                                                <tr>
-                                                    <th style="width: 30%;">Thuộc tính</th>
-                                                    <th style="width: 50%;">Thông số</th>
-                                                    <th style="width: 20%;">Thao tác</th>
-                                                </tr>
-                                                </thead>
-                                                <tbody>
-                                                <tr tag="prop">
-                                                    <td>
-                                                        <input class="form-control form-control-sm" value="SPTest"  type="text" placeholder="Tên thuộc tính">
-                                                    </td>
-                                                    <td>
-                                                        <input value="PROP Tesst"   class="form-control form-control-sm" type="text" placeholder="Thông số">
-                                                    </td>
-                                                    <td>
-                                                        <div class="custom-control form-control-sm mb-3">
-                                                            <input  type="checkbox" checked>
-                                                            <label for="customCheck-outlinecolor2">Active</label>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                </tbody>
-                                            </table>
-                                            <button id="addProperty" type="button" class="btn btn-primary waves-effect waves-light">
-                                                <i class="bx bx-smile font-size-16 align-middle mr-2"></i> Thêm thông số
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> <!-- end col -->
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Thông tin cấu hình</h4>
+                            <div class="table-responsive">
+                                <table class="table table-striped table-nowrap mb-0" id="thongsoTable">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 30%;">Thuộc tính</th>
+                                            <th style="width: 50%;">Thông số</th>
+                                            <th style="width: 20%;">Thao tác</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr tag="prop">
+                                            <td>
+                                                <input class="form-control form-control-sm" value="SPTest" type="text" placeholder="Tên thuộc tính">
+                                            </td>
+                                            <td>
+                                                <input value="PROP Tesst" class="form-control form-control-sm" type="text" placeholder="Thông số">
+                                            </td>
+                                            <td>
+                                                <div class="custom-control form-control-sm mb-3">
+                                                    <input type="checkbox" checked>
+                                                    <label for="customCheck-outlinecolor2">Active</label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <button id="addProperty" type="button" class="btn btn-primary waves-effect waves-light">
+                                    <i class="bx bx-smile font-size-16 align-middle mr-2"></i> Thêm thông số
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- end col -->
             </div>
             <div class="row">
-                            <div class="col-12">
-                                <div class="card">
-                                    <div class="card-body">
-        
-                                        <h4 class="card-title">Tải lên hình ảnh</h4>
-                                        <p class="card-title-desc">Hình đầu tiên sẽ được chọn làm ảnh đại diện
-                                        </p>
-                                        <div>
-                                            <form action="#" id="dropzone" class="dropzone">
-                                                <div class="fallback">
-                                                    <input name="file" id="images" type="file" multiple="multiple">
-                                                </div>
-                                                <div class="dz-message needsclick">
-                                                    <div class="mb-3">
-                                                        <i class="display-4 text-muted bx bxs-cloud-upload"></i>
-                                                    </div>
-                                                    <h4>Kéo thả hoặc click để upload file.</h4>
-                                                </div>
-                                            </form>
-                                        </div>
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+
+                            <h4 class="card-title">Tải lên hình ảnh</h4>
+                            <p class="card-title-desc">Hình đầu tiên sẽ được chọn làm ảnh đại diện
+                            </p>
+                            <div>
+                                <form action="#" id="dropzone" class="dropzone">
+                                    <div class="fallback">
+                                        <input name="file" id="images" type="file" multiple="multiple">
                                     </div>
-                                </div>
+                                    <div class="dz-message needsclick">
+                                        <div class="mb-3">
+                                            <i class="display-4 text-muted bx bxs-cloud-upload"></i>
+                                        </div>
+                                        <h4>Kéo thả hoặc click để upload file.</h4>
+                                    </div>
+                                </form>
                             </div>
-                        </div> <!-- end row -->
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end row -->
             <div class="row">
                 <div class="col-12">
                     <div class="card">
@@ -126,12 +126,12 @@
                 </div>
                 <!-- end col -->
             </div>
-        
+
             <div class="row">
-               
+
             </div>
-        
-        
+
+
         </div> <!-- container-fluid -->
     </div>
     <!-- End Page-content -->
@@ -172,10 +172,11 @@
 <script src="/style/admin/assets/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js"></script>
 <script src="/style/admin/assets/libs/bootstrap-maxlength/bootstrap-maxlength.min.js"></script>
 <script src="/style/admin/assets/libs/%40chenfengyuan/datepicker/datepicker.min.js"></script>
-        <script src="/style/admin/assets/libs/dropzone/min/dropzone.min.js"></script>
+<script src="/style/admin/assets/libs/dropzone/min/dropzone.min.js"></script>
 <script src="/style/admin/assets/libs/summernote/summernote-bs4.min.js"></script>
 <script src="/style/admin/assets/js/pages/form-editor.init.js"></script>
 <script src="/style/admin/assets/js/app.js"></script>
 <script src="/style/admin/assets/js/main.js"></script>
 </body>
+
 </html>

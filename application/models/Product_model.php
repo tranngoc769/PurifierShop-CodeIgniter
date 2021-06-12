@@ -16,7 +16,7 @@ class Product_model extends CI_Model {
         if ($c_id == "0" || $c_id == 0){
             $data =  $this->db->select("p.c_id,p.id, p.name, c.name as c_name, p.detail, p.description, p.price, i.path")
             ->join("category c", "c.id = p.c_id")
-            ->join("images i", "p.id = i.p_id")
+            ->join("images i", "p.id = i.p_id and i.index = 1")
             ->limit($limit,($page-1)*$limit)
             ->order_by("p.price", $orderby)
             ->get("product p");
@@ -24,7 +24,7 @@ class Product_model extends CI_Model {
         }
         $data =  $this->db->select("p.c_id,p.id, p.name, c.name as c_name, p.detail, p.description, p.price, i.path")
         ->join("category c", "c.id = p.c_id")
-        ->join("images i", "p.id = i.p_id")
+        ->join("images i", "p.id = i.p_id and i.index = 1")
         ->limit($limit,($page-1)*$limit)
         ->where("c.id = ".$c_id)
         ->order_by("p.price", $orderby)

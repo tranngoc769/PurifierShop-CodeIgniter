@@ -6,6 +6,7 @@ class Category extends My_Controller
         $this->load->model('product_model');
         $this->load->model('category_model');
         $this->load->model('setting_model');
+        $this->load->model('blog_model');
     }
     public function index() {
         $c_id = $_GET['id'];
@@ -46,10 +47,12 @@ class Category extends My_Controller
         // PAGING
         $data['limit'] = $limit;
         $data['total'] = $total_page;
-        $data['total_product_category'] = $total_product_category;
         $data['page'] = $page;
+        $data['total_product_category'] = $total_product_category;
         $data['orderby'] = $orderby;
         
+        $top5 = $this->blog_model->get_top5_blog();
+        $data['top_5_blog'] = $top5;
         // $data['products'] = $products;
         $config['base_url'] = site_url('shop/index');
         $active['title'] = " - Home";

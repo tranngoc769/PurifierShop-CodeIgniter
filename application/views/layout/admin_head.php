@@ -17,4 +17,7 @@
     <link href="/style/admin/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
     <link href="/style/admin/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link href="/style/admin/assets/libs/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://developer.snapappointments.com/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet" type="text/css" />
+    
 </head>

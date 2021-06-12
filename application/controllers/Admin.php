@@ -165,6 +165,20 @@ class Admin extends My_Controller
         $this->load->view('admin/add_blog');
         //    $this->load->view('layout/admin_footer.php');
     }
+        // Thêm blog
+        public function top_product()
+        {
+            $this->gate_model->admin_gate();
+            $categories = $this->category_model->get_all_category();
+            $data['categories'] = $categories;
+            $cate['cur_category'] = -1;
+            $cate['categories'] = $categories;
+            $this->load->view('layout/admin_head.php');
+            $this->load->view('layout/admin_nav.php');
+            $this->load->view('layout/admin_side.php', $cate);
+            $this->load->view('admin/top_product.php');
+            //    $this->load->view('layout/admin_footer.php');
+        }
     public function blog_add()
     {
         $title = $this->input->post("title");

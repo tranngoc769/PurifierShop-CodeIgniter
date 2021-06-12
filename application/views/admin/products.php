@@ -20,7 +20,7 @@
                         <div class="row mb-2">
                             <div class="col-sm-12">
                                 <div class="text-sm-right">
-                                    <button type="button" class="btn btn-success btn-rounded waves-effect waves-light mb-2 mr-2"><i class="mdi mdi-plus mr-1"></i> Thêm sản phẩm</button>
+                                    <button type="button" class="btn btn-success btn-rounded waves-effect waves-light mb-2 mr-2"><i class="mdi mdi-plus mr-1"></i><a href="add_product">Thêm sản phẩm</a></button>
                                 </div>
                             </div><!-- end col-->
                         </div>

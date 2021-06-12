@@ -1,5 +1,6 @@
 <!-- JAVASCRIPT -->
 <script src="/style/admin/assets/libs/jquery/jquery.min.js"></script>
+<script src="/style/admin/assets/libs/select2/js/select2.min.js"></script>
 <script src="/style/admin/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="/style/admin/assets/libs/metismenu/metisMenu.min.js"></script>
 <script src="/style/admin/assets/libs/simplebar/simplebar.min.js"></script>

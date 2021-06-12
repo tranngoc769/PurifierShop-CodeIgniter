@@ -6,6 +6,7 @@ class Product extends My_Controller
         $this->load->model('product_model');
         $this->load->model('category_model');
         $this->load->model('setting_model');
+        $this->load->model('blog_model');
     }
     public function index() {
         $p_id = $_GET['id'];
@@ -48,6 +49,8 @@ class Product extends My_Controller
         $data['default_images'] = $default_images;
         $data['default_images_arr'] = $default_images_arr;
         // 
+        $top5 = $this->blog_model->get_top5_blog();
+        $data['top_5_blog'] = $top5;
         $data['product_images'] = $product_images;
         $data['descriptions'] = $descriptions;
         $data['product'] = $product;

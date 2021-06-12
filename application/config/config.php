@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-$config['base_url'] = 'http://378ac32cdde2.ngrok.io/';
+$config['base_url'] = 'http://localhost/';
 $config['index_page'] = 'index.php';
 $config['uri_protocol']	= 'REQUEST_URI';
 $config['url_suffix'] = '';
@@ -11,7 +11,6 @@ $config['subclass_prefix'] = 'MY_';
 $config['composer_autoload'] = FALSE;
 
 $config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-';
-
 $config['enable_query_strings'] = FALSE;
 $config['controller_trigger'] = 'c';
 $config['function_trigger'] = 'm';
