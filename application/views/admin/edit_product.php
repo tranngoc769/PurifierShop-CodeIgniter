@@ -16,15 +16,21 @@
                         <div class="card-body">
                             <h4 class="card-title">Thông tin cơ bản</h4>
                             <div class="form-group row">
+                                <label for="example-text-input" class="col-md-2 col-form-label">ID sản phẩm</label>
+                                <div class="col-md-10">
+                                    <input class="form-control" id="p_id" type="text" value="<?= $product->id ?>" disabled readonly required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
                                 <label for="example-text-input" class="col-md-2 col-form-label">Tên sản phẩm</label>
                                 <div class="col-md-10">
-                                    <input class="form-control" id="p_name" type="text" value="SP Test" required>
+                                    <input class="form-control" id="p_name" type="text" value="<?= $product->name ?>" required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="example-number-input" class="col-md-2 col-form-label">Giá sản phẩm</label>
                                 <div class="col-md-10">
-                                    <input class="form-control" id="p_price" value="11111111111" type="number" step="50000" required>
+                                    <input class="form-control" id="p_price" value="<?= $product->price ?>" type="number" step="50000" required>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -32,7 +38,7 @@
                                 <div class="col-md-10">
                                     <select id="p_category" class="form-control" required>
                                         <?php foreach ($categories_par as $i => $cat) : ?>
-                                            <option value="<?= $cat->id ?>"><?= $cat->c_name ?></option>
+                                            <option value="<?= $cat->id ?>" <?php if ($cat->id == $product->c_id) : ?> selected <?php endif; ?>><?= $cat->c_name ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
@@ -56,20 +62,24 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr tag="prop">
-                                            <td>
-                                                <input class="form-control form-control-sm" value="SPTest" type="text" placeholder="Tên thuộc tính">
-                                            </td>
-                                            <td>
-                                                <input value="PROP Tesst" class="form-control form-control-sm" type="text" placeholder="Thông số">
-                                            </td>
-                                            <td>
-                                                <div class="custom-control form-control-sm mb-3">
-                                                    <input type="checkbox" checked>
-                                                    <label for="customCheck-outlinecolor2">Active</label>
-                                                </div>
-                                            </td>
-                                        </tr>
+
+                                        <?php foreach ($props as $i => $prop) : ?>
+                                            <?php $dat = explode(":", $prop) ?>
+                                            <tr tag="prop">
+                                                <td>
+                                                    <input class="form-control form-control-sm" value="<?= str_replace("\"", "", $dat[0]); ?>" type="text" placeholder="Tên thuộc tính">
+                                                </td>
+                                                <td>
+                                                    <input value="<?= str_replace("\"", "", $dat[1]); ?>" class="form-control form-control-sm" type="text" placeholder="Thông số">
+                                                </td>
+                                                <td>
+                                                    <div class="custom-control form-control-sm mb-3">
+                                                        <input type="checkbox" checked>
+                                                        <label for="customCheck-outlinecolor2">Active</label>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        <?php endforeach; ?>
                                     </tbody>
                                 </table>
                                 <button id="addProperty" type="button" class="btn btn-primary waves-effect waves-light">
@@ -84,38 +94,13 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-
-                            <h4 class="card-title">Tải lên hình ảnh</h4>
-                            <p class="card-title-desc">Hình đầu tiên sẽ được chọn làm ảnh đại diện
-                            </p>
-                            <div>
-                                <form action="#" id="dropzone" class="dropzone">
-                                    <div class="fallback">
-                                        <input name="file" id="images" type="file" multiple="multiple">
-                                    </div>
-                                    <div class="dz-message needsclick">
-                                        <div class="mb-3">
-                                            <i class="display-4 text-muted bx bxs-cloud-upload"></i>
-                                        </div>
-                                        <h4>Kéo thả hoặc click để upload file.</h4>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> <!-- end row -->
-            <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-body">
                             <h4 class="card-title">Thông tin chi tiết</h4>
                             <p class="card-title-desc">Chi tiết sản phẩm</p>
 
-                            <div class="summernote"></div>
+                            <div class="summernote"><?= $product->detail ?></div>
                         </div>
                         <div class="card-footer" style="width:100%">
-                            <button id="save_product" type="button" class="btn btn-primary  waves-effect waves-light w-sm" style="width:100%">
+                            <button id="update_product" type="button" class="btn btn-primary  waves-effect waves-light w-sm" style="width:100%">
                                 <i class="mdi mdi-upload d-block font-size-16"></i> Lưu sản phẩm
                             </button>
                         </div>

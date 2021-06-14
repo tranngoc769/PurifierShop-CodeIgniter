@@ -39,7 +39,8 @@ class Admin extends My_Controller
     {
         $this->gate_model->admin_gate();
         $categories = $this->category_model->get_all_category();
-        $data['categories'] = $categories;
+        $categories_par = $this->category_model->get_all_category_of_parent();
+        $data['categories_par'] = $categories_par;
         $cate['cur_category'] = -1;
         $cate['categories'] = $categories;
         $this->load->view('layout/admin_head.php');
@@ -49,6 +50,68 @@ class Admin extends My_Controller
         $this->load->view('admin/add_product', $data);
         // 
         //    $this->load->view('layout/admin_footer.php');
+    }
+    // Sửa sản phẩm
+    public function edit_product()
+    {
+
+        $this->gate_model->admin_gate();
+        $id = $_GET['id'];
+        if (!isset($id)) {
+            redirect("/index.php/admin");
+        }
+        $categories = $this->category_model->get_all_category();
+        $categories_par = $this->category_model->get_all_category_of_parent();
+        $product = $this->product_model->get_product_id($id);
+        $prop = $product->description;
+        $big_array = explode("|", $prop);
+        $cate['categories'] = $categories;
+        $cate['cur_category'] = -1;
+
+        $data['categories_par'] = $categories_par;
+        $data['product'] = $product;
+        $data['props'] = $big_array;
+        $this->load->view('layout/admin_head.php');
+        $this->load->view('layout/admin_nav.php');
+        $this->load->view('layout/admin_side.php', $cate);
+        // 
+        $this->load->view('admin/edit_product', $data);
+        // 
+        //    $this->load->view('layout/admin_footer.php');
+    }
+    // Update sản phẩm
+    public function update_product()
+    {
+        // formData.append("name", name);
+        // formData.append("price", price);
+        // formData.append("category", category);
+        // formData.append("short", short_description);
+        // formData.append("full", full_description);
+            $id = $this->input->post("id");
+            $name = $this->input->post("name");
+            $price = $this->input->post("price");
+            $cate = $this->input->post("category");
+            $description = $this->input->post("short");
+            $detail = $this->input->post("full");
+            $p_id = $this->product_model->update_product($id, array("price" => $price, "name" => $name, "detail" => $detail, "c_id" => $cate, "description" => $description));
+            if (!$p_id) {
+                $array = array(
+                    "code" => 404,
+                    "msg" => "OK"
+                );
+                header('Access-Control-Allow-Origin: *');
+                header('Content-Type: application/json');
+                echo json_encode($array);
+                return;
+            }
+            $array = array(
+                "code" => 200,
+                "msg" => "OK"
+            );
+            header('Access-Control-Allow-Origin: *');
+            header('Content-Type: application/json');
+            echo json_encode($array);
+            return;
     }
     public function add()
     {
@@ -133,7 +196,7 @@ class Admin extends My_Controller
         if (!isset($orderby)) {
             $orderby = "asc";
         }
-        $limit = 2;
+        $limit = 10;
         $products = $this->product_model->get_cate_product($c_id, $page, $limit, $orderby);
         $categories = $this->category_model->get_all_category();
         $total_product_category = $this->product_model->count_category_products($c_id);
@@ -165,27 +228,27 @@ class Admin extends My_Controller
         $this->load->view('admin/add_blog');
         //    $this->load->view('layout/admin_footer.php');
     }
-        // Thêm blog
-        public function top_product()
-        {
-            $this->gate_model->admin_gate();
-            $categories = $this->category_model->get_all_category();
-            $data['categories'] = $categories;
-            $cate['cur_category'] = -1;
-            $cate['categories'] = $categories;
-            $this->load->view('layout/admin_head.php');
-            $this->load->view('layout/admin_nav.php');
-            $this->load->view('layout/admin_side.php', $cate);
-            $this->load->view('admin/top_product.php');
-            //    $this->load->view('layout/admin_footer.php');
-        }
+    // Thêm blog
+    public function top_product()
+    {
+        $this->gate_model->admin_gate();
+        $categories = $this->category_model->get_all_category();
+        $data['categories'] = $categories;
+        $cate['cur_category'] = -1;
+        $cate['categories'] = $categories;
+        $this->load->view('layout/admin_head.php');
+        $this->load->view('layout/admin_nav.php');
+        $this->load->view('layout/admin_side.php', $cate);
+        $this->load->view('admin/top_product.php');
+        //    $this->load->view('layout/admin_footer.php');
+    }
     public function blog_add()
     {
         $title = $this->input->post("title");
         $detail = $this->input->post("detail");
         $up = array("title" => $title, "detail" => $detail, "date" => date('Y-m-d H:i:s'));
         $ok = $this->blog_model->create_blog($up);
-        if (!$ok){
+        if (!$ok) {
             $array = array(
                 "code" => 400,
                 "msg" => "Create blog failed"

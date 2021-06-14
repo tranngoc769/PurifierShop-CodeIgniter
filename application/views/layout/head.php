@@ -779,7 +779,7 @@
                                        <ul class='nav-column nav-dropdown-default'>
                                           <li id="menu-item-1411" class="image-column menu-item
 														menu-item-type-custom menu-item-object-custom menu-item-1411">
-                                             <a href="http://#" class="dropdown-image-column"><img width="180" height="480" src="../../wp-content/uploads/2021/05/cay-nuoc-nong-lanh-karofi-11-2-banner-up-website-jpg.jpg" title="image" alt="image" /></a>
+                                             <a href="http://#" class="dropdown-image-column"><img width="180" height="480" src="/style/uploads/2021/05/cay-nuoc-nong-lanh-karofi-11-2-banner-up-website-jpg.jpg" title="image" alt="image" /></a>
                                           </li>
                                        </ul>
                                     </li>
@@ -788,7 +788,7 @@
                            </li>
                         <?php endif; ?>
                      <?php endforeach; ?>
-                     <li class="menu-item menu-item-type-post_type menu-item-object-post"><a href="/index.php/suachua" class="nav-top-link">Sửa chữa</a></li>
+                     <li class="menu-item menu-item-type-post_type menu-item-object-post"><a href="/index.php/shop/suachua" class="nav-top-link">Sửa chữa</a></li>
                      <li class="menu-item menu-item-type-post_type menu-item-object-post"><a href="/index.php/blog" class="nav-top-link">Chia Sẻ Kinh Nghiệm</a></li>
                   </ul>
                   </div>

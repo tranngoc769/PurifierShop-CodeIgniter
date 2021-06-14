@@ -72,7 +72,6 @@ class Product_model extends CI_Model {
         ->where("p.id = ".$id)
         ->limit(1)
         ->get("product p");
-
         return $data->result()[0];
     }
     public function create_product($data)
