@@ -22,7 +22,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="example-text-input" class="col-md-2 col-form-label">Tên sản phẩm</label>
+                            <label for="example-text-input" class="col-md-2 col-form-label">Tên sản phẩm</label>
                                 <div class="col-md-10">
                                     <input class="form-control" id="p_name" type="text" value="<?= $product->name ?>" required>
                                 </div>

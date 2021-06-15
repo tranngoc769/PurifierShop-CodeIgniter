@@ -11,7 +11,7 @@ class Category extends My_Controller
     public function index() {
         $c_id = $_GET['id'];
         if (!isset($c_id)){
-            $c_id = 12;
+            $c_id = 0;
         }
         $page = $_GET['page'];
         if (!isset($page)){

@@ -23,7 +23,7 @@ class Category_model extends CI_Model {
     }
     public function get_all_category_of_parent()
     {
-        $data =  $this->db->select("ct.id, pct.name, ct.id as c_id, ct.name as c_name")
+        $data =  $this->db->select("pct.id, pct.name, ct.id as c_id, ct.name as c_name")
         ->join("category ct", "ct.c_id = pct.id", "left")
         ->get("parent_category pct");
         return $data->result();

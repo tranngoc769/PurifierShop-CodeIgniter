@@ -51,6 +51,9 @@
                         <?php endforeach; ?>
                     </ul> -->
                     <ul class="product-categories">
+                            <li class="cat-item cat-item-90" aria-expanded="true"><a href="/index.php/category">Tất cả</a><button class="toggle"></button>
+                                
+                            </li>
                         <?php $cur_parent = 1 ?>
                         <?php foreach ($categoriesofparent as $k => $test) : ?>
                             <?php foreach ($test as $j => $sub_cate_test) : ?>
@@ -65,7 +68,7 @@
                                 <li class="cat-item cat-item-90 <?php if ($cur_parent == $i) : ?>cat-parent has-child active<?php endif; ?>" aria-expanded="true"><a href="#"><?= $parent[0]->name ?></a><button class="toggle"></button>
                                     <ul class="children">
                                         <?php foreach ($parent as $j => $sub_cate) : ?>
-                                            <li class="cat-item cat-item-93 <?php if ($sub_cate->c_id == $cur_category) : ?>current-cat cat-parent active<?php endif; ?>"><a href=" /index.php/category?id=<?= $sub_cate->c_id ?>"><?= $sub_cate->c_name ?></a></li>
+                                            <li class="cat-item cat-item-93 <?php if ($sub_cate->c_id == $cur_category) : ?>current-cat cat-parent active<?php endif; ?>"><a href="/index.php/category?id=<?= $sub_cate->c_id ?>"><?= $sub_cate->c_name ?></a></li>
                                         <?php endforeach; ?>
                                     </ul>
                                 </li>
