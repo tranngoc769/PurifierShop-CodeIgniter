@@ -86,6 +86,10 @@ class Product_model extends CI_Model {
     public function delete_product($cid){
         return $this->db->where("id", $cid)->delete("product");
     }
+    
+    public function delete_product_images($cid){
+        return $this->db->where("p_id", $cid)->delete("images");
+    }
     public function add_images($data)
     {
         $isOk = $this->db->insert('images', $data);

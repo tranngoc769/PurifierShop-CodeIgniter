@@ -54,7 +54,6 @@ class Admin extends My_Controller
     // Sửa sản phẩm
     public function edit_product()
     {
-
         $this->gate_model->admin_gate();
         $id = $_GET['id'];
         if (!isset($id)) {
@@ -78,6 +77,18 @@ class Admin extends My_Controller
         $this->load->view('admin/edit_product', $data);
         // 
         //    $this->load->view('layout/admin_footer.php');
+    }
+    // Xóa sản phẩm
+    public function del_product()
+    {
+        $this->gate_model->admin_gate();
+        $id = $_GET['id'];
+        if (!isset($id)) {
+            redirect("/index.php/admin");
+        }
+        $isOK = $this->product_model->delete_product($id);
+        $isOK = $this->product_model->delete_product_images($id);
+        redirect("admin/products");
     }
     // Update sản phẩm
     public function update_product()
