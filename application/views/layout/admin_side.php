@@ -44,7 +44,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="javascript: void(0);" class="waves-effect">
+                            <a href="blogs" class="waves-effect">
                                 <i class="bx bx-list-ul"></i>
                                 <span key="t-tables">Quản lý bài viết</span>
                             </a>

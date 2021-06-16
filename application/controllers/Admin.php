@@ -225,6 +225,35 @@ class Admin extends My_Controller
         $this->load->view('admin/products', $data);
         $this->load->view('layout/admin_footer.php');
     }
+        // DS BLOGS
+        public function blogs()
+        {
+            $this->gate_model->admin_gate();
+            $page = $_GET['page'];
+            if (!isset($page)) {
+                $page = 1;
+            }
+            $orderby = $_GET['orderby'];
+            if (!isset($orderby)) {
+                $orderby = "asc";
+            }
+            $limit = 2;
+            $products = $this->blog_model->get_blogs($page, $limit);
+            $categories = $this->category_model->get_all_category();
+            $total_blogs = $this->blog_model->count_blogs();
+            $total_page = ceil($total_blogs  / $limit);
+            $cate['categories'] = $categories;
+            $data['products'] = $products;
+            $data['page'] = $page;
+            $data['total'] = $total_page;
+            $this->load->view('layout/admin_head.php');
+            $this->load->view('layout/admin_nav.php');
+            $this->load->view('layout/admin_side.php', $cate);
+            // 
+            $data['categories'] = $categories;
+            $this->load->view('admin/blogs', $data);
+            $this->load->view('layout/admin_footer.php');
+        }
     // Thêm blog
     public function add_blog()
     {
