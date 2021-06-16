@@ -98,31 +98,31 @@ class Admin extends My_Controller
         // formData.append("category", category);
         // formData.append("short", short_description);
         // formData.append("full", full_description);
-            $id = $this->input->post("id");
-            $name = $this->input->post("name");
-            $price = $this->input->post("price");
-            $cate = $this->input->post("category");
-            $description = $this->input->post("short");
-            $detail = $this->input->post("full");
-            $p_id = $this->product_model->update_product($id, array("price" => $price, "name" => $name, "detail" => $detail, "c_id" => $cate, "description" => $description));
-            if (!$p_id) {
-                $array = array(
-                    "code" => 404,
-                    "msg" => "OK"
-                );
-                header('Access-Control-Allow-Origin: *');
-                header('Content-Type: application/json');
-                echo json_encode($array);
-                return;
-            }
+        $id = $this->input->post("id");
+        $name = $this->input->post("name");
+        $price = $this->input->post("price");
+        $cate = $this->input->post("category");
+        $description = $this->input->post("short");
+        $detail = $this->input->post("full");
+        $p_id = $this->product_model->update_product($id, array("price" => $price, "name" => $name, "detail" => $detail, "c_id" => $cate, "description" => $description));
+        if (!$p_id) {
             $array = array(
-                "code" => 200,
+                "code" => 404,
                 "msg" => "OK"
             );
             header('Access-Control-Allow-Origin: *');
             header('Content-Type: application/json');
             echo json_encode($array);
             return;
+        }
+        $array = array(
+            "code" => 200,
+            "msg" => "OK"
+        );
+        header('Access-Control-Allow-Origin: *');
+        header('Content-Type: application/json');
+        echo json_encode($array);
+        return;
     }
     public function add()
     {
@@ -225,35 +225,35 @@ class Admin extends My_Controller
         $this->load->view('admin/products', $data);
         $this->load->view('layout/admin_footer.php');
     }
-        // DS BLOGS
-        public function blogs()
-        {
-            $this->gate_model->admin_gate();
-            $page = $_GET['page'];
-            if (!isset($page)) {
-                $page = 1;
-            }
-            $orderby = $_GET['orderby'];
-            if (!isset($orderby)) {
-                $orderby = "asc";
-            }
-            $limit = 2;
-            $products = $this->blog_model->get_blogs($page, $limit);
-            $categories = $this->category_model->get_all_category();
-            $total_blogs = $this->blog_model->count_blogs();
-            $total_page = ceil($total_blogs  / $limit);
-            $cate['categories'] = $categories;
-            $data['products'] = $products;
-            $data['page'] = $page;
-            $data['total'] = $total_page;
-            $this->load->view('layout/admin_head.php');
-            $this->load->view('layout/admin_nav.php');
-            $this->load->view('layout/admin_side.php', $cate);
-            // 
-            $data['categories'] = $categories;
-            $this->load->view('admin/blogs', $data);
-            $this->load->view('layout/admin_footer.php');
+    // DS BLOGS
+    public function blogs()
+    {
+        $this->gate_model->admin_gate();
+        $page = $_GET['page'];
+        if (!isset($page)) {
+            $page = 1;
         }
+        $orderby = $_GET['orderby'];
+        if (!isset($orderby)) {
+            $orderby = "asc";
+        }
+        $limit = 10;
+        $products = $this->blog_model->get_blogs($page, $limit);
+        $categories = $this->category_model->get_all_category();
+        $total_blogs = $this->blog_model->count_blogs();
+        $total_page = ceil($total_blogs  / $limit);
+        $cate['categories'] = $categories;
+        $data['products'] = $products;
+        $data['page'] = $page;
+        $data['total'] = $total_page;
+        $this->load->view('layout/admin_head.php');
+        $this->load->view('layout/admin_nav.php');
+        $this->load->view('layout/admin_side.php', $cate);
+        // 
+        $data['categories'] = $categories;
+        $this->load->view('admin/blogs', $data);
+        $this->load->view('layout/admin_footer.php');
+    }
     // Thêm blog
     public function add_blog()
     {
@@ -268,7 +268,18 @@ class Admin extends My_Controller
         $this->load->view('admin/add_blog');
         //    $this->load->view('layout/admin_footer.php');
     }
-    // Thêm blog
+    // Xóa blogs
+    public function del_blog()
+    {
+        $this->gate_model->admin_gate();
+        $id = $_GET['id'];
+        if (!isset($id)) {
+            redirect("/index.php/admin");
+        }
+        $isOK = $this->blog_model->delete_blog($id);
+        redirect("admin/blogs");
+    }
+    // SP Nổi bật
     public function top_product()
     {
         $this->gate_model->admin_gate();

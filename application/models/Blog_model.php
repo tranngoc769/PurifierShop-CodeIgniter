@@ -44,6 +44,9 @@ class Blog_model extends CI_Model
         ->get("blog");
         return $data->result();
     }
+    public function delete_blog($cid){
+        return $this->db->where("id", $cid)->delete("blog");
+    }
     
     public function create_blog($data)
     {
