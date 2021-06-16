@@ -268,6 +268,52 @@ class Admin extends My_Controller
         $this->load->view('admin/add_blog');
         //    $this->load->view('layout/admin_footer.php');
     }
+    // View Update blog
+    public function edit_blog()
+    {
+        $this->gate_model->admin_gate();
+        $id = $_GET['id'];
+        if (!isset($id)) {
+            redirect("/index.php/admin/blogs");
+        }
+        $categories = $this->category_model->get_all_category();
+        $blog = $this->blog_model->get_blogs_detail($id);
+        $data['categories'] = $categories;
+        $data['blog'] = $blog;
+        $cate['cur_category'] = -1;
+        $cate['categories'] = $categories;
+        $this->load->view('layout/admin_head.php');
+        $this->load->view('layout/admin_nav.php');
+        $this->load->view('layout/admin_side.php', $cate);
+        $this->load->view('admin/update_blog',$data);
+        //    $this->load->view('layout/admin_footer.php');
+    }
+    public function blog_update()
+    {
+        $id = $this->input->post("id");
+        $title = $this->input->post("title");
+        $detail = $this->input->post("detail");
+        $up = array("title" => $title, "detail" => $detail, "date" => date('Y-m-d H:i:s'));
+        $ok = $this->blog_model->update_blog($id,$up);
+        if (!$ok) {
+            $array = array(
+                "code" => 404,
+                "msg" => "OK"
+            );
+            header('Access-Control-Allow-Origin: *');
+            header('Content-Type: application/json');
+            echo json_encode($array);
+            return;
+        }
+        $array = array(
+            "code" => 200,
+            "msg" => "OK"
+        );
+        header('Access-Control-Allow-Origin: *');
+        header('Content-Type: application/json');
+        echo json_encode($array);
+        return;
+    }
     // Xóa blogs
     public function del_blog()
     {

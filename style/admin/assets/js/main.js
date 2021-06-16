@@ -306,4 +306,42 @@ $(document).ready(function() {
                 }
             });
     })
+    $("#update_blog").on("click", function(e) {
+        e.preventDefault();
+        let id = $("#id").val();
+        let title = $("#title").val();
+        if (title == "") {
+            swal("Cập nhật bài đăng", "Điền title", "error");
+            return;
+        }
+        let full_description = $(".note-editable")[0].innerHTML;
+        full_description = `<div class="product-info__slide">` + full_description + `</div>`
+        var formData = new FormData();
+        formData.append("id", id);
+        formData.append("title", title);
+        formData.append("detail", full_description);
+        var settings = {
+            url: "blog_update",
+            method: "POST",
+            timeout: 0,
+            processData: false,
+            mimeType: "multipart/form-data",
+            contentType: false,
+            data: formData,
+        };
+        $.ajax(settings)
+            .fail((result, status, error) => {
+                swal("Cập nhật bài viết", "Cập nhật bài viết không thành công", "error");
+
+            })
+            .success((result, status, error) => {
+                let dt = JSON.parse(result);
+                if (dt.code != 200) {
+                    swal("Cập nhật bài viết", "Cập nhật bài viết không thành công " + dt.msg, "erro");
+                } else {
+                    swal("Cập nhật bài viết", "Cập nhật bài viết thành công", "success");
+                    location.reload();
+                }
+            });
+    })
 });

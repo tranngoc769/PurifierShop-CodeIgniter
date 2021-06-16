@@ -52,7 +52,7 @@
                                             </td>
                                             <td>
                                                 <a href="del_product?id=<?=$prod->id?>" class="text-danger" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"><i class="mdi mdi-close font-size-18"></i></a>
-                                                <a href="edit_product?id=<?=$prod->id?>" class="text-danger" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"><i class="mdi mdi-square-edit-outline font-size-18"></i></a>
+                                                <a href="edit_product?id=<?=$prod->id?>" class="text-danger" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"><i class="mdi mdi-square-edit-outline font-size-18"></i></a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
