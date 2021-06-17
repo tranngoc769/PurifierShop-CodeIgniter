@@ -10,7 +10,8 @@ class Account extends CI_Controller
     }
     public function index()
     {
-        $this->load->view('layout/admin_head.php');
+        $data['title'] = "Đăng nhập";
+        $this->load->view('layout/admin_head.php', $data);
         $this->load->view('admin/login');
         $this->load->view('layout/admin_footer.php');
     }

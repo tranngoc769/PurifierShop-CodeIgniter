@@ -2,7 +2,7 @@
 <html lang="en">
 
     
-<!-- Mirrored from themesbrand.com/skote/layouts/form-editors.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 15 Dec 2020 17:47:51 GMT -->
+<!-- Mirrored from Trần Ngọc.com/skote/layouts/form-editors.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 15 Dec 2020 17:47:51 GMT -->
 <head>
     <meta charset="utf-8" />
     <title><?= $title ?></title>

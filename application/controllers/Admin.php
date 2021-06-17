@@ -27,7 +27,8 @@ class Admin extends My_Controller
         $data['total_product'] = $total_product;
         $cate['cur_category'] = -1;
         $cate['categories'] = $categories;
-        $this->load->view('layout/admin_head.php');
+        $head['title'] = "Trang chủ";
+        $this->load->view('layout/admin_head.php', $head);
         $this->load->view('layout/admin_nav.php');
         $this->load->view('layout/admin_side.php', $cate);
         // 
@@ -44,7 +45,9 @@ class Admin extends My_Controller
         $data['categories_par'] = $categories_par;
         $cate['cur_category'] = -1;
         $cate['categories'] = $categories;
-        $this->load->view('layout/admin_head.php');
+        $title = "Thêm sản phẩm";
+        $head['title'] = $title;
+        $this->load->view('layout/admin_head.php', $head);
         $this->load->view('layout/admin_nav.php');
         $this->load->view('layout/admin_side.php', $cate);
         // 
@@ -71,7 +74,10 @@ class Admin extends My_Controller
         $data['categories_par'] = $categories_par;
         $data['product'] = $product;
         $data['props'] = $big_array;
-        $this->load->view('layout/admin_head.php');
+        
+        $title = "Sửa sản phẩm";
+        $head['title'] = $title;
+        $this->load->view('layout/admin_head.php', $head);
         $this->load->view('layout/admin_nav.php');
         $this->load->view('layout/admin_side.php', $cate);
         // 
@@ -218,7 +224,9 @@ class Admin extends My_Controller
         $data['products'] = $products;
         $data['page'] = $page;
         $data['total'] = $total_page;
-        $this->load->view('layout/admin_head.php');
+        $title = "Danh sách sản phẩm";
+        $head['title'] = $title;
+        $this->load->view('layout/admin_head.php', $head);
         $this->load->view('layout/admin_nav.php');
         $this->load->view('layout/admin_side.php', $cate);
         // 
@@ -238,6 +246,8 @@ class Admin extends My_Controller
         if (!isset($orderby)) {
             $orderby = "asc";
         }
+        $title = "Danh sách bài đăng";
+        $head['title'] = $title;
         $limit = 10;
         $products = $this->blog_model->get_blogs($page, $limit);
         $categories = $this->category_model->get_all_category();
@@ -247,7 +257,7 @@ class Admin extends My_Controller
         $data['products'] = $products;
         $data['page'] = $page;
         $data['total'] = $total_page;
-        $this->load->view('layout/admin_head.php');
+        $this->load->view('layout/admin_head.php', $head);
         $this->load->view('layout/admin_nav.php');
         $this->load->view('layout/admin_side.php', $cate);
         // 
@@ -263,7 +273,9 @@ class Admin extends My_Controller
         $data['categories'] = $categories;
         $cate['cur_category'] = -1;
         $cate['categories'] = $categories;
-        $this->load->view('layout/admin_head.php');
+        $title = "Thêm bài đăng";
+        $head['title'] = $title;
+        $this->load->view('layout/admin_head.php', $head);
         $this->load->view('layout/admin_nav.php');
         $this->load->view('layout/admin_side.php', $cate);
         $this->load->view('admin/add_blog');
@@ -281,9 +293,11 @@ class Admin extends My_Controller
         $blog = $this->blog_model->get_blogs_detail($id);
         $data['categories'] = $categories;
         $data['blog'] = $blog;
+        $title = "Cập nhật bài đăng";
+        $head['title'] = $title;
         $cate['cur_category'] = -1;
         $cate['categories'] = $categories;
-        $this->load->view('layout/admin_head.php');
+        $this->load->view('layout/admin_head.php', $head);
         $this->load->view('layout/admin_nav.php');
         $this->load->view('layout/admin_side.php', $cate);
         $this->load->view('admin/update_blog', $data);
@@ -329,6 +343,8 @@ class Admin extends My_Controller
     // SP Nổi bật
     public function top_product()
     {
+        $title = "Sản phẩm nổi bật";
+        $head['title'] = $title;
         $this->gate_model->admin_gate();
         $categories = $this->category_model->get_all_category();
         $categories_par = $this->category_model->get_all_category_of_parent();
@@ -345,7 +361,7 @@ class Admin extends My_Controller
         $data['products'] = $products;
         $data['top_products'] = $top_products;
         $data['categories_par'] = $categories_par;
-        $this->load->view('layout/admin_head.php');
+        $this->load->view('layout/admin_head.php', $head);
         $this->load->view('layout/admin_nav.php');
         $this->load->view('layout/admin_side.php', $cate);
         $this->load->view('admin/top_product.php', $data);
@@ -430,7 +446,9 @@ class Admin extends My_Controller
         $default_images = $this->setting_model->get_all_default_images();
         $data['default_images'] = $default_images;
         $data['keywords'] = $keywords;
-        $this->load->view('layout/admin_head.php');
+        $title = "Danh sách tham số";
+        $head['title'] = $title;
+        $this->load->view('layout/admin_head.php', $head);
         $this->load->view('layout/admin_nav.php');
         $this->load->view('layout/admin_side.php', $cate);
         $this->load->view('admin/params.php', $data);
