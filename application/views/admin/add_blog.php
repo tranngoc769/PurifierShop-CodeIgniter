@@ -24,6 +24,19 @@
                     </div>
                 </div> <!-- end col -->
             </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Tải lên ảnh đại diện</h4>
+                            </p>
+                            <div>
+                                <input name="file" id="images" type="file">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
             <!-- end row -->
             <div class="row">
                 <div class="col-12">

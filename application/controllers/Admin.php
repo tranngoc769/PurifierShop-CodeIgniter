@@ -286,7 +286,7 @@ class Admin extends My_Controller
         $this->load->view('layout/admin_head.php');
         $this->load->view('layout/admin_nav.php');
         $this->load->view('layout/admin_side.php', $cate);
-        $this->load->view('admin/update_blog',$data);
+        $this->load->view('admin/update_blog', $data);
         //    $this->load->view('layout/admin_footer.php');
     }
     public function blog_update()
@@ -295,7 +295,7 @@ class Admin extends My_Controller
         $title = $this->input->post("title");
         $detail = $this->input->post("detail");
         $up = array("title" => $title, "detail" => $detail, "date" => date('Y-m-d H:i:s'));
-        $ok = $this->blog_model->update_blog($id,$up);
+        $ok = $this->blog_model->update_blog($id, $up);
         if (!$ok) {
             $array = array(
                 "code" => 404,
@@ -338,7 +338,7 @@ class Admin extends My_Controller
         $list_id = [];
         $top_products = $this->product_model->get_top_product_ad();
         $products = $this->product_model->get_all_product();
-        for ($i=0; $i < count($top_products); $i++) { 
+        for ($i = 0; $i < count($top_products); $i++) {
             array_push($list_id, $top_products[$i]->p_id);
         }
         $data['list_id'] = $list_id;
@@ -351,15 +351,15 @@ class Admin extends My_Controller
         $this->load->view('admin/top_product.php', $data);
         //    $this->load->view('layout/admin_footer.php');
     }
-    
+
     public function top_update()
     {
         $list_product = $this->input->post("list_product");
         $list = explode(",", $list_product);
         $this->product_model->delete_top_product();
 
-        for ($i=0; $i < count($list); $i++) { 
-            $ok = $this->product_model->create_top_product(array("p_id"=>$list[$i]));
+        for ($i = 0; $i < count($list); $i++) {
+            $ok = $this->product_model->create_top_product(array("p_id" => $list[$i]));
         }
         $array = array(
             "code" => 200,
@@ -373,14 +373,34 @@ class Admin extends My_Controller
 
     public function blog_add()
     {
+        $config['upload_path']          = './style/uploads/blogs/';
+        $config['allowed_types']        = 'jpeg|gif|jpg|png';
+        $config['max_size']             = 1000;
+        $config['max_width']            = 1000000;
+        $config['max_height']           = 1000000;
+        $this->load->library('upload', $config);
+        // 
         $title = $this->input->post("title");
         $detail = $this->input->post("detail");
-        $up = array("title" => $title, "detail" => $detail, "date" => date('Y-m-d H:i:s'));
-        $ok = $this->blog_model->create_blog($up);
-        if (!$ok) {
+        $path =  $this->upload->do_upload('file');
+        $i_path =  '/style/uploads/blogs/';
+        if ($path) {
+            $up = array("avatar" => $i_path . $path, "title" => $title, "detail" => $detail, "date" => date('Y-m-d H:i:s'));
+            $ok = $this->blog_model->create_blog($up);
+            if (!$ok) {
+                $array = array(
+                    "code" => 400,
+                    "msg" => "Create blog failed"
+                );
+                header('Access-Control-Allow-Origin: *');
+                header('Content-Type: application/json');
+                echo json_encode($array);
+                return;
+            }
+        } else {
             $array = array(
                 "code" => 400,
-                "msg" => "Create blog failed"
+                "msg" => "Upload images failed"
             );
             header('Access-Control-Allow-Origin: *');
             header('Content-Type: application/json');
@@ -397,42 +417,42 @@ class Admin extends My_Controller
         return;
     }
 
-// SP Nổi bật
-public function params()
-{
-    $this->gate_model->admin_gate();
-    $categories = $this->category_model->get_all_category();
-    $categories_par = $this->category_model->get_all_category_of_parent();
-    $data['categories'] = $categories;
-    $cate['cur_category'] = -1;
-    $cate['categories'] = $categories;
-    $keywords = $this->setting_model->get_all_keywords();
-    $default_images = $this->setting_model->get_all_default_images();
-    $data['default_images'] = $default_images;
-    $data['keywords'] = $keywords;
-    $this->load->view('layout/admin_head.php');
-    $this->load->view('layout/admin_nav.php');
-    $this->load->view('layout/admin_side.php', $cate);
-    $this->load->view('admin/params.php', $data);
-    //    $this->load->view('layout/admin_footer.php');
-}
-public function params_update()
-{
-    $totalkeys = $this->input->post("totalkeys")*1;
-    for ($i=0; $i < $totalkeys; $i++) { 
-        $id = $this->input->post("keys_".$i);
-        $text = $this->input->post("val_".$i);
-        $this->setting_model->update_keywords($id,array('text'=>$text));
+    // SP Nổi bật
+    public function params()
+    {
+        $this->gate_model->admin_gate();
+        $categories = $this->category_model->get_all_category();
+        $categories_par = $this->category_model->get_all_category_of_parent();
+        $data['categories'] = $categories;
+        $cate['cur_category'] = -1;
+        $cate['categories'] = $categories;
+        $keywords = $this->setting_model->get_all_keywords();
+        $default_images = $this->setting_model->get_all_default_images();
+        $data['default_images'] = $default_images;
+        $data['keywords'] = $keywords;
+        $this->load->view('layout/admin_head.php');
+        $this->load->view('layout/admin_nav.php');
+        $this->load->view('layout/admin_side.php', $cate);
+        $this->load->view('admin/params.php', $data);
+        //    $this->load->view('layout/admin_footer.php');
     }
-    $array = array(
-        "code" => 200,
-        "msg" => "OK"
-    );
-    header('Access-Control-Allow-Origin: *');
-    header('Content-Type: application/json');
-    echo json_encode($array);
-    return;
-}
+    public function params_update()
+    {
+        $totalkeys = $this->input->post("totalkeys") * 1;
+        for ($i = 0; $i < $totalkeys; $i++) {
+            $id = $this->input->post("keys_" . $i);
+            $text = $this->input->post("val_" . $i);
+            $this->setting_model->update_keywords($id, array('text' => $text));
+        }
+        $array = array(
+            "code" => 200,
+            "msg" => "OK"
+        );
+        header('Access-Control-Allow-Origin: *');
+        header('Content-Type: application/json');
+        echo json_encode($array);
+        return;
+    }
 
     // OLD
 

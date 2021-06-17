@@ -320,6 +320,11 @@ $(document).ready(function() {
     $("#save_blog").on("click", function(e) {
         e.preventDefault();
         let title = $("#title").val();
+        let file_arr = $("#images")[0].files;
+        if (file_arr.length == 0) {
+            swal("Thêm bài đăng", "Vui lòng chọn ít nhất 1 hình ảnh", "error");
+            return;
+        }
         if (title == "") {
             swal("Thêm bài đăng", "Điền title", "error");
             return;
@@ -328,6 +333,7 @@ $(document).ready(function() {
         full_description = `<div class="product-info__slide">` + full_description + `</div>`
         var formData = new FormData();
         formData.append("title", title);
+        formData.append("file", file_arr[0]);
         formData.append("detail", full_description);
         var settings = {
             url: "blog_add",
