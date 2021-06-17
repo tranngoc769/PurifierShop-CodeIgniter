@@ -118,7 +118,7 @@ class Product_model extends CI_Model {
         return $data->result();
     }
     public function delete_top_product(){
-        return $this->db->delete("top_product");
+        $this->db->empty_table('top_product'); 
     }
     
     public function create_top_product( $data){

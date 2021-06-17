@@ -32,7 +32,7 @@
                                 <div class="col-md-10">
                                     <select id="p_category" class="form-control" required>
                                         <?php foreach ($categories_par as $i => $cat) : ?>
-                                            <option value="<?= $cat->id ?>"><?= $cat->c_name ?></option>
+                                            <option value="<?= $cat->c_id ?>"><?= $cat->c_name ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
