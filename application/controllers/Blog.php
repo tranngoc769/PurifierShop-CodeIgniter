@@ -75,6 +75,16 @@ class Blog extends CI_Controller
         }
         $blogs = $this->blog_model->get_blogs_detail($id);
         $top_10 = $this->blog_model->get_top10_blog();
+        $categoriesofparent = $this->category_model->get_all_category_of_parent();
+        //
+        $parent_ct_arr = [];
+        for ($i=0; $i < count($categoriesofparent); $i++) { 
+            if ($parent_ct_arr[$categoriesofparent[$i]->id] == null){
+                $parent_ct_arr[$categoriesofparent[$i]->id] = [];
+            }
+            array_push($parent_ct_arr[$categoriesofparent[$i]->id],$categoriesofparent[$i]);
+        }
+        $data['categoriesofparent'] = $parent_ct_arr;
         $data['keywords'] = $keywords;
         $data['categories'] = $categories;
         $data['default_images'] = $default_images;

@@ -8,6 +8,7 @@ class Admin extends My_Controller
         $this->load->model('product_model');
         $this->load->model('blog_model');
         $this->load->model('category_model');
+        $this->load->model('setting_model');
     }
     // Dashboard
     public function index()
@@ -396,6 +397,42 @@ class Admin extends My_Controller
         return;
     }
 
+// SP Nổi bật
+public function params()
+{
+    $this->gate_model->admin_gate();
+    $categories = $this->category_model->get_all_category();
+    $categories_par = $this->category_model->get_all_category_of_parent();
+    $data['categories'] = $categories;
+    $cate['cur_category'] = -1;
+    $cate['categories'] = $categories;
+    $keywords = $this->setting_model->get_all_keywords();
+    $default_images = $this->setting_model->get_all_default_images();
+    $data['default_images'] = $default_images;
+    $data['keywords'] = $keywords;
+    $this->load->view('layout/admin_head.php');
+    $this->load->view('layout/admin_nav.php');
+    $this->load->view('layout/admin_side.php', $cate);
+    $this->load->view('admin/params.php', $data);
+    //    $this->load->view('layout/admin_footer.php');
+}
+public function params_update()
+{
+    $totalkeys = $this->input->post("totalkeys")*1;
+    for ($i=0; $i < $totalkeys; $i++) { 
+        $id = $this->input->post("keys_".$i);
+        $text = $this->input->post("val_".$i);
+        $this->setting_model->update_keywords($id,array('text'=>$text));
+    }
+    $array = array(
+        "code" => 200,
+        "msg" => "OK"
+    );
+    header('Access-Control-Allow-Origin: *');
+    header('Content-Type: application/json');
+    echo json_encode($array);
+    return;
+}
 
     // OLD
 

@@ -36,6 +36,41 @@ $(document).ready(function() {
             </tr>
         `);
     })
+    $("#save_params").on("click", function() {
+        var list_div = $("div[tag='keys']");
+        var formData = new FormData()
+        formData.append('totalkeys', list_div.length)
+        for (let index = 0; index < list_div.length; index++) {
+            const element = list_div[index];
+            k_id = element.children[0].value
+            k_text = element.children[1].value
+            formData.append('keys_' + index, k_id)
+            formData.append('val_' + index, k_text)
+        }
+        var settings = {
+            url: "params_update",
+            method: "POST",
+            timeout: 0,
+            processData: false,
+            mimeType: "multipart/form-data",
+            contentType: false,
+            data: formData,
+        };
+        $.ajax(settings)
+            .fail((result, status, error) => {
+                swal("Cập nhật tham số", "Cập nhật tham số không thành công", "error");
+
+            })
+            .success((result, status, error) => {
+                let dt = JSON.parse(result);
+                if (dt.code != 200) {
+                    swal("Cập nhật tham số", "Cập nhật tham số không thành công " + dt.msg, "erro");
+                } else {
+                    swal("Cập nhật tham số", "Cập nhật tham số thành công", "success");
+                    location.reload();
+                }
+            });
+    })
     $("#category_select").on("change", function() {
         let val = $(this).val();
         $(`#top_select option`).attr('hidden', true)
