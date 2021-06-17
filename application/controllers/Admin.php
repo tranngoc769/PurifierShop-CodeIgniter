@@ -330,15 +330,46 @@ class Admin extends My_Controller
     {
         $this->gate_model->admin_gate();
         $categories = $this->category_model->get_all_category();
+        $categories_par = $this->category_model->get_all_category_of_parent();
         $data['categories'] = $categories;
         $cate['cur_category'] = -1;
         $cate['categories'] = $categories;
+        $list_id = [];
+        $top_products = $this->product_model->get_top_product_ad();
+        $products = $this->product_model->get_all_product();
+        for ($i=0; $i < count($top_products); $i++) { 
+            array_push($list_id, $top_products[$i]->p_id);
+        }
+        $data['list_id'] = $list_id;
+        $data['products'] = $products;
+        $data['top_products'] = $top_products;
+        $data['categories_par'] = $categories_par;
         $this->load->view('layout/admin_head.php');
         $this->load->view('layout/admin_nav.php');
         $this->load->view('layout/admin_side.php', $cate);
-        $this->load->view('admin/top_product.php');
+        $this->load->view('admin/top_product.php', $data);
         //    $this->load->view('layout/admin_footer.php');
     }
+    
+    public function top_update()
+    {
+        $list_product = $this->input->post("list_product");
+        $list = explode(",", $list_product);
+        $this->product_model->delete_top_product();
+
+        for ($i=0; $i < count($list); $i++) { 
+            $ok = $this->product_model->create_top_product(array("p_id"=>$list[$i]));
+        }
+        $array = array(
+            "code" => 200,
+            "msg" => "OK"
+        );
+        header('Access-Control-Allow-Origin: *');
+        header('Content-Type: application/json');
+        echo json_encode($array);
+        return;
+    }
+
     public function blog_add()
     {
         $title = $this->input->post("title");

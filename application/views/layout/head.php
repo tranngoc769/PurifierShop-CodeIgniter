@@ -683,7 +683,7 @@
                <div class="header-inner flex-row container logo-left medium-logo-center" role="navigation">
                   <div id="logo" class="flex-col logo">
                      <a href="/" title="MÁY LỌC NƯỚC KAROFI &#8211; ĐẠI LÝ ỦY QUYỀN TẠI <?= strtoupper($keywords['name']) ?> - " rel="home">
-                        <img width="337" height="100" src="/style/uploads/default/logo.png" class="header_logo header-logo" alt="MÁY LỌC NƯỚC KAROFI &#8211; ĐẠI LÝ ỦY QUYỀN TẠI <?= strtoupper($keywords['name']) ?>" /><img width="337" height="100" src="/style/uploads/default/logo.png" class="header-logo-dark" alt="MÁY LỌC NƯỚC KAROFI &#8211; ĐẠI LÝ ỦY QUYỀN TẠI <?= strtoupper($keywords['name']) ?>" /></a>
+                        <img width="337" height="100" src="/style/uploads/default/logo.jpg" class="header_logo header-logo" alt="MÁY LỌC NƯỚC KAROFI &#8211; ĐẠI LÝ ỦY QUYỀN TẠI <?= strtoupper($keywords['name']) ?>" /><img width="337" height="100" src="/style/uploads/default/logo.jpg" class="header-logo-dark" alt="MÁY LỌC NƯỚC KAROFI &#8211; ĐẠI LÝ ỦY QUYỀN TẠI <?= strtoupper($keywords['name']) ?>" /></a>
                   </div>
                   <div class="flex-col show-for-medium flex-left">
                      <ul class="mobile-nav nav nav-left ">

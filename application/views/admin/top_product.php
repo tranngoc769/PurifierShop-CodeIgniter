@@ -10,36 +10,37 @@
                     </div>
                 </div>
             </div>
+            <?php $cur_cate = $categories_par[0]->id ?>
             <div class="row">
-                <div class="table-responsive">
-                    <table class="table table-striped table-nowrap mb-0" id="thongsoTable">
-                        <thead>
-                            <tr>
-                                <th style="width: 30%;">Thuộc tính</th>
-                                <th style="width: 50%;">Thông số</th>
-                                <th style="width: 20%;">Thao tác</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr tag="prop">
-                                <td>
-                                    <input class="form-control form-control-sm" value="SPTest" type="text" placeholder="Tên thuộc tính">
-                                </td>
-                                <td>
-                                    <input value="PROP Tesst" class="form-control form-control-sm" type="text" placeholder="Thông số">
-                                </td>
-                                <td>
-                                    <div class="custom-control form-control-sm mb-3">
-                                        <input type="checkbox" checked>
-                                        <label for="customCheck-outlinecolor2">Active</label>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <button id="addProperty" type="button" class="btn btn-primary waves-effect waves-light">
-                        <i class="bx bx-smile font-size-16 align-middle mr-2"></i> Thêm thông số
-                    </button>
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Danh mục</h4>
+                            <div class="form-group row">
+                                <select id="category_select" class="form-control">
+                                    <option value="<?= $cate->id ?>">Tất cả</option>
+                                    <?php foreach ($categories_par as $i => $cate) : ?>
+                                        <option value="<?= $cate->c_id ?>"><?= $cate->c_name ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- end col -->
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="form-group row">
+                                <select style="height: 30vh;" id="top_select" class="form-control" required multiple>
+                                    <?php foreach ($products as $i => $prod) : ?>
+                                        <option  tag="<?= $prod->c_id ?>" <?php if(in_array($prod->id, $list_id)):?>selected <?php endif;?> value="<?= $prod->id ?>"><?= $prod->id ?>-<?= $prod->name ?>-<?= $prod->c_name ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <!-- end row -->
@@ -47,8 +48,8 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-footer" style="width:100%">
-                            <button id="save_blog" type="button" class="btn btn-primary  waves-effect waves-light w-sm" style="width:100%">
-                                <i class="mdi mdi-upload d-block font-size-16"></i> Lưu bài viết
+                            <button id="save_top_product" type="button" class="btn btn-primary  waves-effect waves-light w-sm" style="width:100%">
+                                <i class="mdi mdi-upload d-block font-size-16"></i> Lưu
                             </button>
                         </div>
                     </div>

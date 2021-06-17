@@ -7,7 +7,7 @@ class Product_model extends CI_Model {
         $data =  $this->db->select("tp.p_id, p.name, p.price, i.path, ct.name as category")
         ->join("product p", "p.id = tp.p_id")
         ->join("images i", "i.p_id = p.id")
-        ->join("category ct", "ct.id = tp.c_id")
+        ->join("category ct", "ct.id = p.c_id")
         ->get("top_product tp");
         return $data->result();
     } 
@@ -101,11 +101,27 @@ class Product_model extends CI_Model {
     {
 		return $this->db->where("id", $id)->update('product', $data);
     }
+
+    // GET TOP PRODUCT AD
+    public function get_top_product_ad(){
+        $data =  $this->db->select("tp.p_id, p.name, p.price,ct.id as c_id, ct.name as category")
+        ->join("product p", "p.id = tp.p_id")
+        ->join("category ct", "ct.id = p.c_id")
+        ->get("top_product tp");
+        return $data->result();
+    } 
     public function get_all_product()
     {
-        $data =  $this->db
-        ->join("product pd", "pd.cid = ct.id")
-        ->get("category ct");
+        $data =  $this->db->select("p.id, c.id as c_id, c.name as c_name, p.name ")
+        ->join(" category c", "p.c_id = c.id")
+        ->get("product p");
         return $data->result();
+    }
+    public function delete_top_product(){
+        return $this->db->delete("top_product");
+    }
+    
+    public function create_top_product( $data){
+        $isOk = $this->db->insert('top_product', $data);
     }
 }

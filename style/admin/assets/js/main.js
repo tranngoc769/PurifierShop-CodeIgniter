@@ -36,7 +36,19 @@ $(document).ready(function() {
             </tr>
         `);
     })
-
+    $("#category_select").on("change", function() {
+        let val = $(this).val();
+        $(`#top_select option`).attr('hidden', true)
+        if (val == "") {
+            $(`#top_select option`).attr('hidden', false)
+        } else {
+            $(`#top_select option[tag='${val}']`).attr('hidden', false)
+        }
+    })
+    $("#save_top_product").on("click", function() {
+        let val = $("#top_select").val();
+        console.log(val);
+    })
     $("#save_product").on("click", function(e) {
         e.preventDefault();
         let name = $("#p_name").val();
@@ -340,6 +352,39 @@ $(document).ready(function() {
                     swal("Cập nhật bài viết", "Cập nhật bài viết không thành công " + dt.msg, "erro");
                 } else {
                     swal("Cập nhật bài viết", "Cập nhật bài viết thành công", "success");
+                    location.reload();
+                }
+            });
+    })
+    $("#save_top_product").on("click", function(e) {
+        e.preventDefault();
+        let vals = $("#top_select").val();
+        if (vals.length == 0) {
+            swal("Cập nhật sản phẩm nổi bật", "Chọn ít nhất một", "error");
+            return;
+        }
+        var formData = new FormData();
+        formData.append("list_product", vals);
+        var settings = {
+            url: "top_update",
+            method: "POST",
+            timeout: 0,
+            processData: false,
+            mimeType: "multipart/form-data",
+            contentType: false,
+            data: formData,
+        };
+        $.ajax(settings)
+            .fail((result, status, error) => {
+                swal("Cập nhật sản phẩm nổi bật", "Cập nhật sản phẩm nổi bật không thành công", "error");
+
+            })
+            .success((result, status, error) => {
+                let dt = JSON.parse(result);
+                if (dt.code != 200) {
+                    swal("Cập nhật sản phẩm nổi bật", "Cập nhật sản phẩm nổi bật không thành công " + dt.msg, "erro");
+                } else {
+                    swal("Cập nhật sản phẩm nổi bật", "Cập nhật sản phẩm nổi bật thành công", "success");
                     location.reload();
                 }
             });
