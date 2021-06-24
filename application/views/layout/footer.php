@@ -90,9 +90,11 @@
          <?php foreach ($categories as $i => $ct) : ?>
             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-229"><a href="/index.php/category?id=<?= $ct->id ?>" class="nav-top-link"><?= $ct->name ?></a></li>
          <?php endforeach; ?>
+         <li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-1389"><a href="index.php/shop/suachua" class="nav-top-link">Sửa chữa máy lọc tại nhà</a></li>
+         <li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-1389"><a href="index.php/shop/thayloi" class="nav-top-link">Thay lõi máy lọc tận nhà</a></li>
          <li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-1389"><a href="index.php/expert" class="nav-top-link">Chia sẻ kinh nghiệm</a></li>
          <li class="html custom html_topbar_right"><span style="font-size:140%;"><i class="icon-phone"></i> Hotline: <a href="tel:<?= $keywords['hotline'] ?>" style="
-                  color: #fff;
+                  color: black;
                   "><?= $keywords['hotline'] ?></a></span></li>
       </ul>
    </div>

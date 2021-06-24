@@ -30,7 +30,19 @@
                             <div class="form-group row">
                                 <label for="example-number-input" class="col-md-2 col-form-label">Giá sản phẩm</label>
                                 <div class="col-md-10">
-                                    <input class="form-control" id="p_price" value="<?= $product->price ?>" type="number" step="50000" required>
+                                    <input class="form-control" id="p_price" value="<?=$product->price?>" type="number" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-4">
+                                    <select id="p_isSale" class="form-control" required>
+                                            <option value="0" <?php if($product->isSale == 0): ?> selected <?php endif; ?> >Không khuyến mãi</option>
+                                            <option value="1" <?php if($product->isSale == 1): ?> selected <?php endif; ?> >Khuyến mãi phần trăm</option>
+                                            <option value="2" <?php if($product->isSale == 2): ?> selected <?php endif; ?> >Khuyến mãi giá</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-8">
+                                    <input class="form-control" id="p_saleAmount" value="<?=$product->saleAmount ?>" type="number" required>
                                 </div>
                             </div>
                             <div class="form-group row">

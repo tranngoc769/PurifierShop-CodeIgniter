@@ -42,7 +42,7 @@
                                             <td><a href="javascript: void(0);" class="text-body font-weight-bold">#<?= $prod->id ?></a> </td>
                                             <td><?= $prod->name ?></td>
                                             <td>
-                                                $<?= $prod->price ?>
+                                            <?=number_format($prod->price,0,',','.');?>
                                             </td>
                                             <td>
                                                 <!-- Button trigger modal -->

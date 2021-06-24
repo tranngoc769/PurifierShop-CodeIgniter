@@ -86,7 +86,7 @@
                             <ul class="next-prev-thumbs is-small show-for-medium"></ul>
                             <div class="price-wrapper">
                                 <p class="price product-page-price ">
-                                    <span class="woocommerce-Price-amount amount"><?=$product->price?>&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span>
+                                    <span class="woocommerce-Price-amount amount"><?=number_format($product->price,0,',','.');?>&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span>
                                 </p>
                             </div>
                             <div class="product-short-description">

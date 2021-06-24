@@ -28,6 +28,24 @@
                                 </div>
                             </div>
                             <div class="form-group row">
+                                <label for="example-number-input" class="col-md-2 col-form-label">Khuyến mãi</label>
+                                <div class="col-md-10">
+                                    <input class="form-control" id="p_price" value="11111111111" type="number" step="50000" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-4">
+                                    <select id="p_isSale" class="form-control" required>
+                                            <option value="0">Không khuyến mãi</option>
+                                            <option value="1">Khuyến mãi phần trăm</option>
+                                            <option value="2">Khuyến mãi giá</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-8">
+                                    <input class="form-control" id="p_saleAmount" value="0" type="number" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
                                 <label class="col-md-2 col-form-label">Loại sản phẩm</label>
                                 <div class="col-md-10">
                                     <select id="p_category" class="form-control" required>

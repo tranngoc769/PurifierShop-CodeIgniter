@@ -1,5 +1,5 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
-class Admin extends My_Controller
+class Admin extends CI_Controller
 {
 
     public function __construct()
@@ -109,9 +109,13 @@ class Admin extends My_Controller
         $name = $this->input->post("name");
         $price = $this->input->post("price");
         $cate = $this->input->post("category");
+        // 
+        $isSale = $this->input->post("isSale");
+        $saleAmount = $this->input->post("saleAmount");
+        // 
         $description = $this->input->post("short");
         $detail = $this->input->post("full");
-        $p_id = $this->product_model->update_product($id, array("price" => $price, "name" => $name, "detail" => $detail, "c_id" => $cate, "description" => $description));
+        $p_id = $this->product_model->update_product($id, array("isSale"=>$isSale,"saleAmount"=>$saleAmount, "price" => $price, "name" => $name, "detail" => $detail, "c_id" => $cate, "description" => $description));
         if (!$p_id) {
             $array = array(
                 "code" => 404,
@@ -147,7 +151,10 @@ class Admin extends My_Controller
         $c_id = $this->input->post("category");
         $description = $this->input->post("short");
         $detail = $this->input->post("full");
-        $p_id = $this->product_model->create_product(array("name" => $name, "price" => $price, "c_id" => $c_id, "description" => $description, "detail" => $detail));
+        
+        $isSale = $this->input->post("isSale");
+        $saleAmount = $this->input->post("saleAmount");
+        $p_id = $this->product_model->create_product(array("isSale"=>$isSale,"saleAmount"=>$saleAmount, "name" => $name, "price" => $price, "c_id" => $c_id, "description" => $description, "detail" => $detail));
         if ($p_id == false) {
             $array = array(
                 "code" => 400,

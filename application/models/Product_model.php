@@ -4,7 +4,7 @@ class Product_model extends CI_Model {
 
     // GET TOP PRODUCT
     public function get_top_product(){
-        $data =  $this->db->select("tp.p_id, p.name, p.price, i.path, ct.name as category")
+        $data =  $this->db->select("tp.p_id, p.name, p.price,p.isSale, p.saleAmount, i.path, ct.name as category")
         ->join("product p", "p.id = tp.p_id")
         ->join("images i", "i.p_id = p.id")
         ->join("category ct", "ct.id = p.c_id")
@@ -14,7 +14,7 @@ class Product_model extends CI_Model {
     public function get_cate_product($c_id, $page = 1, $limit = 9, $orderby){
     
         if ($c_id == "0" || $c_id == 0){
-            $data =  $this->db->select("p.c_id,p.id, p.name, c.name as c_name, p.detail, p.description, p.price, i.path")
+            $data =  $this->db->select("p.c_id,p.id, p.name,p.isSale, p.saleAmount, c.name as c_name, p.detail, p.description, p.price, i.path")
             ->join("category c", "c.id = p.c_id")
             ->join("images i", "p.id = i.p_id and i.index = 1")
             ->limit($limit,($page-1)*$limit)
@@ -22,7 +22,7 @@ class Product_model extends CI_Model {
             ->get("product p");
             return $data->result();
         }
-        $data =  $this->db->select("p.c_id,p.id, p.name, c.name as c_name, p.detail, p.description, p.price, i.path")
+        $data =  $this->db->select("p.c_id,p.id,p.isSale, p.saleAmount, p.name, c.name as c_name, p.detail, p.description, p.price, i.path")
         ->join("category c", "c.id = p.c_id")
         ->join("images i", "p.id = i.p_id and i.index = 1")
         ->limit($limit,($page-1)*$limit)
@@ -67,7 +67,7 @@ class Product_model extends CI_Model {
     
     public function get_product_id($id)
     {
-        $data =  $this->db->select("p.id, p.price, p.name, c.name as c_name, p.description, p.detail, p.c_id")
+        $data =  $this->db->select("p.id,p.isSale, p.saleAmount, p.price, p.name, c.name as c_name, p.description, p.detail, p.c_id")
         ->join("category c", "c.id = p.c_id")
         ->where("p.id = ".$id)
         ->limit(1)
@@ -112,7 +112,7 @@ class Product_model extends CI_Model {
     } 
     public function get_all_product()
     {
-        $data =  $this->db->select("p.id, c.id as c_id, c.name as c_name, p.name ")
+        $data =  $this->db->select("p.id,p.isSale, p.saleAmount, c.id as c_id, c.name as c_name, p.name ")
         ->join(" category c", "p.c_id = c.id")
         ->get("product p");
         return $data->result();

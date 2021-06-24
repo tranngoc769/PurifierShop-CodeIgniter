@@ -140,9 +140,23 @@
                                  <?=$prod->name?></a></p>
                               </div>
                               <div class="price-wrapper">
-                                 <span class="price"><span class="woocommerce-Price-amount amount"><?=$prod->price?>&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span>
+                                 
+                             
+                                 <span class="price"><span class=" <?php if($prod->isSale != 0 ) : ?>giamgia<?php endif ?> woocommerce-Price-amount amount"><?=number_format($prod->price,0,',','.');?>&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span>
                                  </span>
                               </div>
+                              <?php if ($prod->isSale != 0): ?>
+                                 <div class="price">
+                                    <span class="price"><span class="woocommerce-Price-amount amount">
+                                    <?php if($prod->isSale == 1 ) : ?>
+                                       <?=number_format($prod->price * (1-$prod->saleAmount/100),0,',','.');?>&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span>
+                                       <?php else: ?>
+                                          <?=number_format($prod->price  - $prod->saleAmount,0,',','.');?>&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span>
+                                          <?php endif; ?>
+                                    
+                                 </span>
+                              </div>
+                              <?php endif;?>
                            </div>
                         </div>
                      </div>

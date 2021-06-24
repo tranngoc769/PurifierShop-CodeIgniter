@@ -21,10 +21,10 @@
                     <?php foreach ($blogs as $i => $bl) : ?>
                         <div class="media" style="margin: 10px 20px;display: flex;-ms-flex-align: start;align-items: flex-start;">
                             <img src="<?= $bl->avatar ?>"  width="100" height="100" alt="..." style="margin: 0px 20px;">
-                            <div class="media-body">
-                                <h5 class="mt-0"><?= $bl->date ?></h5>
-                                <?= $bl->title ?>
-                                <span class="font-weight-semibold"><a href="/index.php/blog/detail?id=<?= $bl->id ?>">Chi tiết</a></span>
+                            <div style="margin: auto 0;" class="media-body">
+                                <h5 class="mt-0"><?= $bl->title ?></h5>
+                                <?= $bl->date ?>
+                                <br><a href="/index.php/blog/detail?id=<?= $bl->id ?>">Chi tiết</a>
                             </div>
                         </div>
                         <?php endforeach; ?>

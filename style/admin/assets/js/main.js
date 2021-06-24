@@ -71,23 +71,13 @@ $(document).ready(function() {
                 }
             });
     })
-    $("#category_select").on("change", function() {
-        let val = $(this).val();
-        $(`#top_select option`).attr('hidden', true)
-        if (val == "") {
-            $(`#top_select option`).attr('hidden', false)
-        } else {
-            $(`#top_select option[tag='${val}']`).attr('hidden', false)
-        }
-    })
-    $("#save_top_product").on("click", function() {
-        let val = $("#top_select").val();
-        console.log(val);
-    })
+
     $("#save_product").on("click", function(e) {
         e.preventDefault();
         let name = $("#p_name").val();
         let price = $("#p_price").val();
+        let p_saleAmount = $("#p_saleAmount").val();
+        let p_isSale = $("#p_isSale").val();
         let category = $("#p_category").val();
         let full_description = $(".note-editable")[0].innerHTML;
         // 
@@ -129,49 +119,13 @@ $(document).ready(function() {
             swal("Thêm sản phẩm", "Soạn mô tả", "error");
             return;
         }
-
-        // full_description = full_description.replace("<b>", `<strong style="color: #00aae7; font-size: 25.92px;"><span style="font-size: 25.92px;">`);
-        // full_description = full_description.replace("</b>", `</span></strong>`);
-        // full_description = full_description.replace("<h1>", `<strong style="color: #00aae7; font-size: 25.92px;"><span style="font-size: 25.92px;">`);
-        // full_description = full_description.replace("</h1>", `</span></strong>`);
-        // full_description = full_description.replace("<h3>", `<strong><span style="font-size: 90%; color: #000000;">`);
-        // full_description = full_description.replace("</h3>", `</span></strong>`);
-        // full_description = full_description.replace("</b>", `</span></strong>`);
-
-
-        // full_description = full_description.replace("<li>", `<li style="text-align: left;"><span style="font-size: 110%; color: #000000;">`);
-        // full_description = full_description.replace("</li>", `</span></li>`);
-        // full_description = full_description.replace("<img src=", `<img width="1000" height="563" sizes="(max-width: 1000px) 100vw, 1000px" class="alignnone wp-image-1359 size-full" src="`);
         full_description = full_description.replace(`\\"`, `"`);
         full_description = full_description.replace(`\\"`, `"`);
-
-        //         "<p style=\"text-align: center; \"><b>xdasdasdassdasd</b></p><p>asdasdas&nbsp; <b>adasdadasd </b>s asd</p><p>213123123</p><ul><li>231231</li><li>1231231</li></ul><p><br></p>
-
-        // <div class="product-info__slide">
-
-        //         <div>
-        //             <p style="text-align: center;"><strong style="color: #00aae7; font-size: 25.92px;"><span style="font-size: 25.92px;">MÁY LỌC NƯỚC KAROFI KAQ-U95 AioTec</span></strong></p>
-        //         </div>
-        //         <h3><strong><span style="font-size: 90%; color: #000000;"><span id="bo-sung-khoang-chat-tot-qua-6-loi-chuc-nang">Bổ sung khoáng chất tốt qua 6 lõi chức năng</span></span></strong></h3>
-        //         <ul>
-        //             <li style="text-align: left;"><span style="font-size: 110%; color: #000000;">Tạo nước Hydrogen hoạt tính bằng phương pháp tự nhiên, hỗ trợ ngăn ngừa lão hoá.</span></li>
-        //             <li style="text-align: left;"><span style="font-size: 110%; color: #000000;">Bổ sung khoáng chất K, Na…cân bằng pH giúp nước ngon ngọt hơn.</span></li>
-        //             <li style="text-align: left;"><span style="font-size: 110%; color: #000000;">Lõi lọc Tourmaline mới giúp hoạt hoá, chia nhỏ phân tử nước giúp nước dễ dàng thẩm thấu vào cơ thể khi cần bù nước nhanh.</span></li>
-        //             <li style="text-align: left;"><span style="font-size: 110%; color: #000000;">Lõi lọc Nano bạc kháng khuẩn tốt nhất thị trường.</span></li>
-        //         </ul>
-
-        //         <p><span style="color: #000000;"><strong>MÁY THÍCH HỢP LẮP TRONG CÁC KHÔNG GIAN NHỎ GỌN</strong></span></p>
-
-        //         <h3 class="product-info__slide-main__item slide-video" style="text-align: center;"><strong>NƯỚC UỐNG TRƯỢC TIẾP (TIÊU CHUẨN QCVN06-1 BỘ Y TẾ)</strong></h3>
-
-        //         <p style="text-align: center;"><strong><span style="font-size: 150%; color: #00aae7;">PHỐI CẢNH VỊ TRÍ LẮP ĐẶT</span></strong></p>
-
-        //         </div>
-
         full_description = `<div class="product-info__slide">` + full_description + `</div>`
         var formData = new FormData();
         formData.append("name", name);
-        formData.append("price", price);
+        formData.append("saleAmount", p_saleAmount);
+        formData.append("isSale", p_isSale);
         formData.append("category", category);
         formData.append("short", short_description);
         formData.append("full", full_description);
@@ -207,6 +161,8 @@ $(document).ready(function() {
     $("#update_product").on("click", function(e) {
         e.preventDefault();
         let id = $("#p_id").val();
+        let p_saleAmount = $("#p_saleAmount").val();
+        let p_isSale = $("#p_isSale").val();
         let name = $("#p_name").val();
         let price = $("#p_price").val();
         let category = $("#p_category").val();
@@ -246,50 +202,15 @@ $(document).ready(function() {
             swal("Thêm sản phẩm", "Soạn mô tả", "error");
             return;
         }
-
-        // full_description = full_description.replace("<b>", `<strong style="color: #00aae7; font-size: 25.92px;"><span style="font-size: 25.92px;">`);
-        // full_description = full_description.replace("</b>", `</span></strong>`);
-        // full_description = full_description.replace("<h1>", `<strong style="color: #00aae7; font-size: 25.92px;"><span style="font-size: 25.92px;">`);
-        // full_description = full_description.replace("</h1>", `</span></strong>`);
-        // full_description = full_description.replace("<h3>", `<strong><span style="font-size: 90%; color: #000000;">`);
-        // full_description = full_description.replace("</h3>", `</span></strong>`);
-        // full_description = full_description.replace("</b>", `</span></strong>`);
-
-
-        // full_description = full_description.replace("<li>", `<li style="text-align: left;"><span style="font-size: 110%; color: #000000;">`);
-        // full_description = full_description.replace("</li>", `</span></li>`);
-        // full_description = full_description.replace("<img src=", `<img width="1000" height="563" sizes="(max-width: 1000px) 100vw, 1000px" class="alignnone wp-image-1359 size-full" src="`);
         full_description = full_description.replace(`\\"`, `"`);
         full_description = full_description.replace(`\\"`, `"`);
-
-        //         "<p style=\"text-align: center; \"><b>xdasdasdassdasd</b></p><p>asdasdas&nbsp; <b>adasdadasd </b>s asd</p><p>213123123</p><ul><li>231231</li><li>1231231</li></ul><p><br></p>
-
-        // <div class="product-info__slide">
-
-        //         <div>
-        //             <p style="text-align: center;"><strong style="color: #00aae7; font-size: 25.92px;"><span style="font-size: 25.92px;">MÁY LỌC NƯỚC KAROFI KAQ-U95 AioTec</span></strong></p>
-        //         </div>
-        //         <h3><strong><span style="font-size: 90%; color: #000000;"><span id="bo-sung-khoang-chat-tot-qua-6-loi-chuc-nang">Bổ sung khoáng chất tốt qua 6 lõi chức năng</span></span></strong></h3>
-        //         <ul>
-        //             <li style="text-align: left;"><span style="font-size: 110%; color: #000000;">Tạo nước Hydrogen hoạt tính bằng phương pháp tự nhiên, hỗ trợ ngăn ngừa lão hoá.</span></li>
-        //             <li style="text-align: left;"><span style="font-size: 110%; color: #000000;">Bổ sung khoáng chất K, Na…cân bằng pH giúp nước ngon ngọt hơn.</span></li>
-        //             <li style="text-align: left;"><span style="font-size: 110%; color: #000000;">Lõi lọc Tourmaline mới giúp hoạt hoá, chia nhỏ phân tử nước giúp nước dễ dàng thẩm thấu vào cơ thể khi cần bù nước nhanh.</span></li>
-        //             <li style="text-align: left;"><span style="font-size: 110%; color: #000000;">Lõi lọc Nano bạc kháng khuẩn tốt nhất thị trường.</span></li>
-        //         </ul>
-
-        //         <p><span style="color: #000000;"><strong>MÁY THÍCH HỢP LẮP TRONG CÁC KHÔNG GIAN NHỎ GỌN</strong></span></p>
-
-        //         <h3 class="product-info__slide-main__item slide-video" style="text-align: center;"><strong>NƯỚC UỐNG TRƯỢC TIẾP (TIÊU CHUẨN QCVN06-1 BỘ Y TẾ)</strong></h3>
-
-        //         <p style="text-align: center;"><strong><span style="font-size: 150%; color: #00aae7;">PHỐI CẢNH VỊ TRÍ LẮP ĐẶT</span></strong></p>
-
-        //         </div>
-
         full_description = `<div class="product-info__slide">` + full_description + `</div>`
         var formData = new FormData();
         formData.append("id", id);
         formData.append("name", name);
         formData.append("price", price);
+        formData.append("saleAmount", p_saleAmount);
+        formData.append("isSale", p_isSale);
         formData.append("category", category);
         formData.append("short", short_description);
         formData.append("full", full_description);
@@ -396,6 +317,15 @@ $(document).ready(function() {
                     location.reload();
                 }
             });
+    })
+    $("#category_select").on("change", function() {
+        let val = $(this).val();
+        $(`#top_select option`).attr('hidden', true)
+        if (val == "") {
+            $(`#top_select option`).attr('hidden', false)
+        } else {
+            $(`#top_select option[tag='${val}']`).attr('hidden', false)
+        }
     })
     $("#save_top_product").on("click", function(e) {
         e.preventDefault();

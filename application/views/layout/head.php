@@ -17,8 +17,22 @@
    </script>
    <title>MÁY LỌC NƯỚC KAROFI - ĐẠI LÝ ỦY QUYỀN TẠI <?= $keywords['name'] ?></title>
    <style>
+      .giamgia {
+         font-style: italic;
+         font-weight: bold;
+         text-decoration-line: line-through !important;
+         color: red !important;
+      }
+
       .chaty-widget {
          bottom: 100px !important;
+      }
+
+      .container-width,
+      .full-width .ubermenu-nav,
+      .container,
+      .row {
+         max-width: 1400px !important;
       }
 
       .wishlist_table .add_to_cart,
@@ -254,21 +268,21 @@
             "number_bg_color": "#dd0000",
             "position": "right",
             "social": [{
-               "val": "https:\/\/messenger.com\/t\/tranngoc769",
+               "val": "<?=$keywords['messenger'] ?>",
                "default_icon": "<svg class=\"ico_d \" width=\"39\" height=\"39\" viewBox=\"0 0 39 39\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" style=\"transform: rotate(0deg);\"><circle class=\"color-element\" cx=\"19.4395\" cy=\"19.4395\" r=\"19.4395\" fill=\"#1E88E5\"\/><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M0 9.63934C0 4.29861 4.68939 0 10.4209 0C16.1524 0 20.8418 4.29861 20.8418 9.63934C20.8418 14.98 16.1524 19.2787 10.4209 19.2787C9.37878 19.2787 8.33673 19.1484 7.42487 18.8879L3.90784 20.8418V17.1945C1.56311 15.3708 0 12.6353 0 9.63934ZM8.85779 10.1604L11.463 13.0261L17.1945 6.90384L12.1143 9.76959L9.37885 6.90384L3.64734 13.0261L8.85779 10.1604Z\" transform=\"translate(9.01854 10.3146)\" fill=\"white\"\/><\/svg>",
                "bg_color": "#1E88E5",
                "title": "Facebook Messenger",
                "img_url": "",
                "social_channel": "facebook_messenger",
                "channel_type": "facebook_messenger",
-               "href_url": "https:\/\/messenger.com\/t\/tranngoc769",
+               "href_url": "<?=$keywords['messenger'] ?>",
                "desktop_target": "_blank",
                "mobile_target": "",
                "qr_code_image": "",
                "channel": "Facebook_Messenger",
                "is_mobile": 1,
                "is_desktop": 1,
-               "mobile_url": "https:\/\/messenger.com\/t\/tranngoc769",
+               "mobile_url": "<?=$keywords['messenger'] ?>",
                "on_click": "",
                "has_font": 0,
                "popup_html": "",
@@ -719,6 +733,11 @@
                   </div>
                   <div class="flex-col hide-for-medium flex-right">
                      <ul class="header-nav header-nav-main nav nav-right  nav-divided nav-spacing-xlarge nav-uppercase">
+                     <a href="/index.php/admin" style="opacity: 0;">....................................</a>
+                     </ul>
+                  </div>
+                  <div class="flex-col hide-for-medium flex-right">
+                     <ul class="header-nav header-nav-main nav nav-right  nav-divided nav-spacing-xlarge nav-uppercase">
                         <li class="header-divider"></li>
                         <li class="html custom html_topbar_right"><span style="font-size:140%;"><i class="icon-phone"></i> Hotline: <a href="tel:<?= $keywords['hotline'] ?>" style="color: #fff;
                               "><?= $keywords['hotline'] ?></a></span></li>
@@ -755,42 +774,43 @@
             <div id="wide-nav" class="header-bottom wide-nav hide-for-sticky hide-for-medium">
                <div class="flex-row container">
                   <div class="flex-col hide-for-medium flex-left">
-                  <ul class="nav header-nav header-bottom-nav nav-left nav-spacing-large
+                     <ul class="nav header-nav header-bottom-nav nav-left nav-spacing-large
 									nav-uppercase">
-                     <!-- <ul class="nav header-nav header-bottom-nav nav-left  nav-spacing-large nav-uppercase">
+                        <!-- <ul class="nav header-nav header-bottom-nav nav-left  nav-spacing-large nav-uppercase">
                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-95 current_page_item active  menu-item-244"><a href="/" class="nav-top-link">Trang chủ</a></li>
                         <?php foreach ($categories as $i => $ct) : ?>
                            <li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat"><a href="/index.php/category?id=<?= $ct->id ?>" class="nav-top-link"><?= $ct->name ?></a></li>
                         <?php endforeach; ?>
                         <li class="menu-item menu-item-type-post_type menu-item-object-post"><a href="/index.php/blog" class="nav-top-link">Chi sẻ kinh nghiệm</a></li>
                      </ul> -->
-                     <!-- <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-95 current_page_item active  menu-item-244"><a href="/" class="nav-top-link">Trang chủ</a></li> -->
-                     <?php foreach ($categoriesofparent as $i => $parent) : ?>
-                        <?php if (count($parent) > 0) : ?>
-                           <li id="menu-item-418" class="menu-custom-image menu-item
+                        <!-- <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-95 current_page_item active  menu-item-244"><a href="/" class="nav-top-link">Trang chủ</a></li> -->
+                        <?php foreach ($categoriesofparent as $i => $parent) : ?>
+                           <?php if (count($parent) > 0) : ?>
+                              <li id="menu-item-418" class="menu-custom-image menu-item
 										menu-item-type-taxonomy menu-item-object-product_cat current-menu-item
 										menu-item-has-children menu-item-418 has-dropdown">
-                              <a href="#" class="nav-top-link"><?= $parent[0]->name ?><i class="icon-angle-down"></i></a>
-                              <ul class='nav-dropdown nav-dropdown-default'>
-                                 <?php foreach ($parent as $j => $sub_cate) : ?>
-                                    <li id="menu-item-420" class="menu-item menu-item-type-taxonomy
+                                 <a href="#" class="nav-top-link"><?= $parent[0]->name ?><i class="icon-angle-down"></i></a>
+                                 <ul class='nav-dropdown nav-dropdown-default'>
+                                    <?php foreach ($parent as $j => $sub_cate) : ?>
+                                       <li id="menu-item-420" class="menu-item menu-item-type-taxonomy
 												menu-item-object-product_cat menu-item-has-children menu-item-420
 												nav-dropdown-col"><a href="/index.php/category?id=<?= $sub_cate->c_id ?>"><?= $sub_cate->c_name ?></a>
-                                       <ul class='nav-column nav-dropdown-default'>
-                                          <li id="menu-item-1411" class="image-column menu-item
+                                          <ul class='nav-column nav-dropdown-default'>
+                                             <li id="menu-item-1411" class="image-column menu-item
 														menu-item-type-custom menu-item-object-custom menu-item-1411">
-                                             <a href="http://#" class="dropdown-image-column"><img width="180" height="480" src="/style/uploads/2021/05/cay-nuoc-nong-lanh-karofi-11-2-banner-up-website-jpg.jpg" title="image" alt="image" /></a>
-                                          </li>
-                                       </ul>
-                                    </li>
-                                 <?php endforeach; ?>
-                              </ul>
-                           </li>
-                        <?php endif; ?>
-                     <?php endforeach; ?>
-                     <li class="menu-item menu-item-type-post_type menu-item-object-post"><a href="/index.php/shop/suachua" class="nav-top-link">Sửa chữa</a></li>
-                     <li class="menu-item menu-item-type-post_type menu-item-object-post"><a href="/index.php/blog" class="nav-top-link">Chia Sẻ Kinh Nghiệm</a></li>
-                  </ul>
+                                                <a href="http://#" class="dropdown-image-column"><img width="180" height="480" src="/style/uploads/2021/05/cay-nuoc-nong-lanh-karofi-11-2-banner-up-website-jpg.jpg" title="image" alt="image" /></a>
+                                             </li>
+                                          </ul>
+                                       </li>
+                                    <?php endforeach; ?>
+                                 </ul>
+                              </li>
+                           <?php endif; ?>
+                        <?php endforeach; ?>
+                        <li class="menu-item menu-item-type-post_type menu-item-object-post"><a href="/index.php/shop/suachua" class="nav-top-link">Sửa chữa lọc nước tại nhà</a></li>
+                        <li class="menu-item menu-item-type-post_type menu-item-object-post"><a href="/index.php/shop/thayloi" class="nav-top-link">Thay lõi lọc nước tại nhà</a></li>
+                        <li class="menu-item menu-item-type-post_type menu-item-object-post"><a href="/index.php/blog" class="nav-top-link">Chia Sẻ Kinh Nghiệm</a></li>
+                     </ul>
                   </div>
                   <div class="flex-col hide-for-medium flex-right flex-grow">
                      <ul class="nav header-nav header-bottom-nav nav-right  nav-spacing-large nav-uppercase">
