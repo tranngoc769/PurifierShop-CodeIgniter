@@ -42,16 +42,16 @@
          -webkit-border-radius: 16px;
       }
    </style>
-   <meta name="description" content="Trung Tâm Máy Lọc Nước KAROFI | Số 207, Ngô Quyền, TP.<?= $keywords['name'] ?> | Hotline: <?= $keywords['hotline'] ?> - <?= $keywords['hotline'] ?> |Vận Chuyển, Lắp Đặt, Bảo Hành miễn phí." />
+   <meta name="description" content="Trung Tâm Máy Lọc Nước KAROFI | Số 207, Ngô Quyền, TP.<?= $keywords['name'] ?> | Hotline: <?= $keywords['hotline'] ?> - <?= $keywords['customer_care'] ?> |Vận Chuyển, Lắp Đặt, Bảo Hành miễn phí." />
    <link rel="canonical" href="index.html" />
    <meta property="og:locale" content="vi_VN" />
    <meta property="og:type" content="website" />
    <meta property="og:title" content="MÁY LỌC NƯỚC KAROFI - ĐẠI LÝ ỦY QUYỀN TẠI <?= strtoupper($keywords['name']) ?>" />
-   <meta property="og:description" content="Trung Tâm Máy Lọc Nước KAROFI | Số 207, Ngô Quyền, TP.<?= $keywords['name'] ?> | Hotline: <?= $keywords['hotline'] ?> - <?= $keywords['hotline'] ?> |Vận Chuyển, Lắp Đặt, Bảo Hành miễn phí." />
+   <meta property="og:description" content="Trung Tâm Máy Lọc Nước KAROFI | Số 207, Ngô Quyền, TP.<?= $keywords['name'] ?> | Hotline: <?= $keywords['hotline'] ?> - <?= $keywords['customer_care'] ?> |Vận Chuyển, Lắp Đặt, Bảo Hành miễn phí." />
    <meta property="og:url" content="https://karofihaiduong.vn/" />
    <meta property="og:site_name" content="MÁY LỌC NƯỚC KAROFI - ĐẠI LÝ ỦY QUYỀN TẠI <?= strtoupper($keywords['name']) ?>" />
    <meta name="twitter:card" content="summary_large_image" />
-   <meta name="twitter:description" content="Trung Tâm Máy Lọc Nước KAROFI | Số 207, Ngô Quyền, TP.<?= $keywords['name'] ?> | Hotline: <?= $keywords['hotline'] ?> - <?= $keywords['hotline'] ?> |Vận Chuyển, Lắp Đặt, Bảo Hành miễn phí." />
+   <meta name="twitter:description" content="Trung Tâm Máy Lọc Nước KAROFI | Số 207, Ngô Quyền, TP.<?= $keywords['name'] ?> | Hotline: <?= $keywords['hotline'] ?> - <?= $keywords['customer_care'] ?> |Vận Chuyển, Lắp Đặt, Bảo Hành miễn phí." />
    <meta name="twitter:title" content="MÁY LỌC NƯỚC KAROFI - ĐẠI LÝ ỦY QUYỀN TẠI <?= strtoupper($keywords['name']) ?>" />
    <!-- <script type='application/ld+json'>
          {

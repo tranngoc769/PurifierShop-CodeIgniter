@@ -6,7 +6,7 @@
             <div class="is-divider small"></div>
             <p>Địa chỉ: <?= $keywords['address'] ?></p>
             <p>Hotline: <a href="tel:<?= $keywords['hotline'] ?>"><?= $keywords['hotline'] ?></a></p>
-            <p>Dịch vụ - Bảo hành: <a href="tel:CONFIG_SDT"><?= $keywords['hotline'] ?></a></p>
+            <p>Dịch vụ - Bảo hành: <a href="tel:CONFIG_SDT"><?= $keywords['customer_care'] ?></a></p>
             <div class="social-icons follow-icons "><a href="<?= $keywords['facebook'] ?>" target="_blank" data-label="Facebook" rel="nofollow" class="icon button circle is-outline facebook tooltip" title="Follow on Facebook"><i class="icon-facebook"></i></a>
                <a href="#" target="_blank" rel="nofollow" data-label="Instagram" class="icon button circle is-outline  instagram tooltip" title="Follow on Instagram"><i class="icon-instagram"></i></a><a href="#" target="_blank" data-label="Twitter" rel="nofollow" class="icon button circle is-outline  twitter tooltip" title="Follow on Twitter"><i class="icon-twitter"></i></a><a href="mailto:#" data-label="E-mail" rel="nofollow" class="icon button circle is-outline  email tooltip" title="Send us an email"><i class="icon-envelop"></i></a><a href="#" target="_blank" rel="nofollow" data-label="Pinterest" class="icon button circle is-outline  pinterest tooltip" title="Follow on Pinterest"><i class="icon-pinterest"></i></a>
             </div>
@@ -38,7 +38,7 @@
          <div id="custom_html-2" class="widget_text col pb-0 widget widget_custom_html">
             <span class="widget-title">BẢN ĐỒ</span>
             <div class="is-divider small"></div>
-            <div class="textwidget custom-html-widget"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62706.48474686107!2d106.71168150000003!3d10.799415399999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175292fe33e6ca3%3A0x30a1cbb2b5d98dbf!2zQ8O0bmcgdmnDqm4gSG_DoG5nIFbEg24gVGjhu6U!5e0!3m2!1svi!2s!4v1622625378942!5m2!1svi!2s" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe></div>
+            <div class="textwidget custom-html-widget"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3715.856557140066!2d106.2535385149382!3d21.3561524858219!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31356959328343f3%3A0x84787e7b187dd175!2zNzAgTMOqIEzhu6NpLCBUVC4gVsO0aSwgTOG6oW5nIEdpYW5nLCBC4bqvYyBHaWFuZw!5e0!3m2!1svi!2s!4v1624521204394!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe></div>
          </div>
       </div>
    </div>
@@ -87,8 +87,20 @@
             </div>
          </li>
          <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-95 current_page_item menu-item-244"><a href="index.html" class="nav-top-link">Trang chủ</a></li>
-         <?php foreach ($categories as $i => $ct) : ?>
+         <!-- <?php foreach ($categories as $i => $ct) : ?>
             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-229"><a href="/index.php/category?id=<?= $ct->id ?>" class="nav-top-link"><?= $ct->name ?></a></li>
+         <?php endforeach; ?> -->
+         <?php foreach ($categoriesofparent as $i => $parent) : ?>
+            <?php if (count($parent) > 0) : ?>
+               <li class="menu-custom-image menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children menu-item-418 has-child" aria-expanded="true"><a href="#" class="nav-top-link"><?= $parent[0]->name ?></a>
+                  <ul style="min-height:unset!; padding-bottom:10px" class="children">
+                     <?php foreach ($parent as $j => $sub_cate) : ?>
+                        <li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children menu-item-420"><a href="/index.php/category?id=<?=$sub_cate->c_id ?>"><?= $sub_cate->c_name ?></a>
+                        </li>
+                     <?php endforeach; ?>
+                  </ul>
+               </li>
+            <?php endif; ?>
          <?php endforeach; ?>
          <li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-1389"><a href="index.php/shop/suachua" class="nav-top-link">Sửa chữa máy lọc tại nhà</a></li>
          <li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-1389"><a href="index.php/shop/thayloi" class="nav-top-link">Thay lõi máy lọc tận nhà</a></li>

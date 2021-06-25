@@ -74,7 +74,8 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-
+                                    
+                                               
                                         <?php foreach ($props as $i => $prop) : ?>
                                             <?php $dat = explode(":", $prop) ?>
                                             <tr tag="prop">

@@ -29,7 +29,7 @@
                            <div class="entry-content single-page">
 
                               <h2>DỊCH VỤ THAY LÕI MÁY LỌC NƯỚC TẠI <?= $keywords['nameUp'] ?></h2>
-                              <p><span style="color: #00aae7;"><strong><span style="font-family: 'times new roman', times, serif; font-size: 140%;">HOTLINE: <span style="color: #ff0000;"><?= $keywords['hotline'] ?>&nbsp; –&nbsp; <?= $keywords['hotline'] ?></span></span></strong></span></p>
+                              <p><span style="color: #00aae7;"><strong><span style="font-family: 'times new roman', times, serif; font-size: 140%;">HOTLINE: <span style="color: #ff0000;"><?= $keywords['hotline'] ?>&nbsp; –&nbsp; <?= $keywords['customer_care'] ?></span></span></strong></span></p>
                               <p><strong>Thay lõi máy lọc nước chính hãng, giá rẻ, nhân viên nhiệt tình, phục vụ 24/7</strong></p>
                               <div style="text-align: center;"><span style="font-family: 'times new roman', times, serif; font-size: 120%; color: #00aae7;"><strong>THAY LÕI ĐỊNH KỲ ĐỂ NƯỚC ĐẠT CHUẨN UỐNG TRỰC TIẾP&nbsp;</strong></span></div>
                               <div style="text-align: center;"><span style="font-size: 120%; font-family: 'times new roman', times, serif; color: #00aae7;"><strong>(TIÊU CHUẨN QCVN06-1 BỘ Y TẾ)</strong></span></div>
@@ -108,7 +108,7 @@
                               <div></div>
                               <div><span style="color: #00aae7;"><strong><span style="font-family: 'times new roman', times, serif; font-size: 140%;">TRUNG TÂM ỦY QUYỀN CHÍNH HÃNG KAROFI TẠI <?= $keywords['nameUp'] ?></span></strong></span></div>
                               <h3><span style="color: #ed1c24;"><strong>LIÊN HỆ THAY LÕI MÁY LỌC NƯỚC TẠI <?= $keywords['nameUp'] ?></strong></span></h3>
-                              <div><span style="color: #00aae7;"><strong><span style="font-family: 'times new roman', times, serif; font-size: 140%;">HOTLINE: <span style="color: #ff0000;"><?= $keywords['hotline'] ?>&nbsp; –&nbsp; <?= $keywords['hotline'] ?>&nbsp; FanPage: <a href="https://www.facebook.com/info.karofihaiduong">Karofi <?= $keywords['name'] ?></a></span></span></strong></span></div>
+                              <div><span style="color: #00aae7;"><strong><span style="font-family: 'times new roman', times, serif; font-size: 140%;">HOTLINE: <span style="color: #ff0000;"><?= $keywords['hotline'] ?>&nbsp; –&nbsp; <?= $keywords['customer_care'] ?>&nbsp; FanPage: <a href="https://www.facebook.com/info.karofihaiduong">Karofi <?= $keywords['name'] ?></a></span></span></strong></span></div>
                               <div><strong style="color: #00aae7; font-size: 14.4px;"><span style="font-family: 'times new roman', times, serif; font-size: 140%;"><?= $keywords['address'] ?></span></strong></div>
                               <div><span style="color: #ed1c24; font-size: 120%;"><strong><span style="font-family: 'times new roman', times, serif;"><img class="alignnone wp-image-926" src="/style/uploads/2019/12/chi-tay.png" alt="" width="34" height="17">&nbsp; &nbsp;<em>Cung cấp linh phụ kiện Chính Hãng</em></span></strong></span></div>
                               <div><em><span style="color: #ed1c24; font-size: 120%;"><strong><span style="font-family: 'times new roman', times, serif;"><img class="alignnone wp-image-926" src="/style/uploads/2019/12/chi-tay.png" alt="" width="34" height="17">&nbsp; &nbsp;Bảo Hành,&nbsp;Bảo Dưỡng, Xử lý sự cố Máy Lọc nước 24/7</span></strong></span></em></div>

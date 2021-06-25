@@ -45,10 +45,11 @@
                                 <div class="flex-row recent-blog-posts align-top pt-half pb-half">
                                     <div class="flex-col mr-half">
                                         <div class="badge post-date  badge-square">
-                                            <div class="badge-inner bg-fill" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2) ), url(../wp-content/uploads/2019/12/5678-karofi-280x280.jpg); color:#fff; text-shadow:1px 1px 0px rgba(0,0,0,.5); border:0;>
+                                            <img src="<?= $top10->avatar ?>">
+                                            <!-- <div class="badge-inner bg-fill" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2) ), url(../wp-content/uploads/2019/12/5678-karofi-280x280.jpg); color:#fff; text-shadow:1px 1px 0px rgba(0,0,0,.5); border:0;>
 								<span class=" post-date-day"=""><?= $top10->day ?><br>
                                                 <span class="post-date-month is-xsmall">TH<?= $top10->month ?></span>
-                                            </div>
+                                            </div> -->
                                         </div>
                                     </div><!-- .flex-col -->
                                     <div class="flex-col flex-grow">

@@ -99,7 +99,7 @@ $(document).ready(function() {
             let prop_active = list_td[2].getElementsByTagName("input")[0].checked
             if (prop_active == true) {
                 if (prop_name != "" && prop_des != "") {
-                    short_description += `"${prop_name.replace("|", ",")}":"${prop_des.replace("|", ",")}"|`
+                    short_description += `"${prop_name.replace("|", ",").replace(":", "")}":"${prop_des.replace("|", ",").replace(":", "")}"|`
                 }
             }
         }
@@ -126,6 +126,7 @@ $(document).ready(function() {
         formData.append("name", name);
         formData.append("saleAmount", p_saleAmount);
         formData.append("isSale", p_isSale);
+        formData.append("price", price);
         formData.append("category", category);
         formData.append("short", short_description);
         formData.append("full", full_description);
@@ -186,7 +187,7 @@ $(document).ready(function() {
             let prop_active = list_td[2].getElementsByTagName("input")[0].checked
             if (prop_active == true) {
                 if (prop_name != "" && prop_des != "") {
-                    short_description += `"${prop_name.replace("|", ",")}":"${prop_des.replace("|", ",")}"|`
+                    short_description += `"${prop_name.replace("|", ",").replace(":", "")}":"${prop_des.replace("|", ",").replace(":", "")}"|`
                 }
             }
         }

@@ -29,7 +29,7 @@ class Blog_model extends CI_Model
     }
     public function get_top10_blog()
     {
-        $data =  $this->db->select("MONTH(date) as month, DAY(date) as day,YEAR(date) as year, id, title, detail")
+        $data =  $this->db->select("MONTH(date) as month, DAY(date) as day,YEAR(date) as year, id, title, detail,avatar")
         ->order_by("date", "ASC")
         ->limit(10,0)
         ->get("blog");
@@ -38,7 +38,7 @@ class Blog_model extends CI_Model
     
     public function get_top5_blog()
     {
-        $data =  $this->db->select("MONTH(date) as month, DAY(date) as day,YEAR(date) as year, id, title, detail")
+        $data =  $this->db->select("MONTH(date) as month, DAY(date) as day,YEAR(date) as year, id, title, detail,avatar")
         ->order_by("date", "ASC")
         ->limit(5,0)
         ->get("blog");
