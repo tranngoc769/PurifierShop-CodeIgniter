@@ -158,7 +158,7 @@
                   <?php foreach ($categories as $i => $ct) : ?>
                   <div class="product-category col">
                      <div class="col-inner">
-                        <a href="/index.php/category?id=<?=$ct->id?>">
+                        <a href="/index.php/category?id=<?php if($ct->id==1):?>1<?php elseif($ct->id==2):?>4<?php elseif($ct->id==3):?>7<?php elseif($ct->id==4):?>10<?php endif;?>">
                            <div class="box box-category has-hover box-bounce ">
                               <div class="box-image">
                                  <div class="">
@@ -296,7 +296,7 @@
             </div>
 
             <!-- MODAL -->
-            <div id="modal_prod" class="mfp-wrap mfp-close-btn-in mfp-auto-cursor mfp-ready" tabindex="-1" style="overflow: hidden auto;">
+            <div id="modal_prod" class="mfp-wrap mfp-close-btn-in mfp-auto-cursor mfp-ready" tabindex="-1" style="overflow: hidden auto;display:none">
     <div class="mfp-container mfp-s-ready mfp-inline-holder" style="height: unset;">
         <div class="mfp-content">
             <div class="product-lightbox lightbox-content">
