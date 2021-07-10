@@ -8,6 +8,25 @@ class Product extends CI_Controller
         $this->load->model('setting_model');
         $this->load->model('blog_model');
     }
+    public function api_product(){
+        $p_id = $_GET['id'];
+        $product_images = $this->product_model->get_product_images($p_id);
+        $product = $this->product_model->get_product_id($p_id);
+        $des = $product->description;
+        $des_arr = explode("|",$des);
+        
+        $descriptions  = array();
+        for ($i=0; $i < count($des_arr); $i++) { 
+            $tmp = explode(":",$des_arr[$i]);
+            $unit[0] = trim(str_replace("\"", "", $tmp[0]));
+            $unit[1] = trim(str_replace("\"", "", $tmp[1]));
+            $descriptions[$i] = $unit;
+        }
+        $data = array("code"=>200,"id"=>$p_id,"price"=>$product->price,"images"=>$product_images,"name"=>$product->name,"isSale"=>$product->isSale,"saleAmount"=>$product->saleAmount,"category"=>$product->c_name, "descriptions"=>$descriptions);
+
+        echo json_encode($data,JSON_UNESCAPED_UNICODE );
+
+    }
     public function index() {
         $p_id = $_GET['id'];
         if (!isset($p_id)){

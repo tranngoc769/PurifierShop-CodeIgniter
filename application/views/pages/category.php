@@ -118,9 +118,6 @@
                                         </div>
                                         <div class="image-tools is-small hide-for-small bottom left show-on-hover">
                                         </div>
-                                        <div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover">
-                                            <a class="quick-view" data-prod="1352" href="#quick-view">Chi Tiết</a>
-                                        </div>
                                     </div><!-- box-image -->
                                     <div class="box-text box-text-products">
                                         <div class="title-wrapper">

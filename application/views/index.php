@@ -1,3 +1,100 @@
+         <style> 
+      
+      * {box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+      </style>
          <main id="main" class="">
             <div id="content" role="main" class="content-area">
                <div class="slider-wrapper relative " id="slider-685022574">
@@ -128,7 +225,7 @@
                               <div class="image-tools is-small hide-for-small bottom left show-on-hover">
                               </div>
                               <div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover">
-                                 <a class="quick-view" data-prod="1352" href="#quick-view">Chi Tiết</a> 
+                                 <a class="xemtruoc" data-prod="<?= $prod->p_id ?>">Xem trước</a> 
                               </div>
                            </div>
                            <div class="box-text box-text-products">
@@ -197,4 +294,159 @@
                </div>
                <?php endforeach;?>
             </div>
-         </main>
+
+            <!-- MODAL -->
+            <div id="modal_prod" class="mfp-wrap mfp-close-btn-in mfp-auto-cursor mfp-ready" tabindex="-1" style="overflow: hidden auto;">
+    <div class="mfp-container mfp-s-ready mfp-inline-holder" style="height: unset;">
+        <div class="mfp-content">
+            <div class="product-lightbox lightbox-content">
+                <div class="product-quick-view-container">
+                    <div class="row row-collapse mb-0 product" id="product-1515">
+                        <div class="product-gallery large-6 col slideshow-container">
+                           <div id="img_arr">
+                              <div class="mySlides fade">
+                                 <div class="numbertext">1 / 3</div>
+                                 <img src="style\uploads\2019\12\5678-karofi-280x280.jpg" style="width:100%">
+                              </div>
+                              <div class="mySlides fade">
+                                 <div class="numbertext">2 / 3</div>
+                                 <img src="style\uploads\2019\12\5678-karofi-280x280.jpg" style="width:100%">
+                              </div>
+                              <div class="mySlides fade">
+                                 <div class="numbertext">3 / 3</div>
+                                 <img src="style\uploads\2019\12\5678-karofi-280x280.jpg" style="width:100%">
+                              </div>
+                            </div>
+                            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                            <br>
+                            <div id="img_arr_dot" style="text-align:center">
+                                <span class="dot" onclick="currentSlide(1)"></span>
+                            </div>
+                        </div>
+                        <div class="product-info summary large-6  col entry-summary" style="font-size:90%;">
+                            <div class="product-lightbox-inner" style="padding: 30px;">
+                                <a id="gotoproduct" href="">
+                                    <h1>Máy lọc nước nóng lạnh Karofi KAD-D52</h1>
+                                </a>
+                                <div class="is-divider small"></div>
+                                <div id="price-wrapper_mod">
+                                    <!-- <p class="price product-page-price price-on-sale">
+                                       <del><span class="woocommerce-Price-amount amount">9,990,000<span class="woocommerce-Price-currencySymbol">₫</span></span></del>
+                                       <ins><span class="woocommerce-Price-amount amount">8,300,000<span class="woocommerce-Price-currencySymbol">₫</span></span></ins>
+                                    </p> -->
+                                </div>
+                                <div class="product-short-description">
+                                    
+                                </div>
+                                <form action="" id="gotoproduct" class="cart" >
+                                    <button type="submit" value="1515" class="single_add_to_cart_button button alt">Chi Tiết</button>
+                                </form>
+                                <div class="product_meta">
+                                    <span class="posted_in">Danh mục: </a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button title="Close (Esc)" type="button" onclick="closemodal()" class="mfp-close">×</button></div>
+        </div>
+        <div class="mfp-preloader">Loading...</div>
+    </div>
+</div>
+
+<script type=' text/javascript ' src=' /style/wp-includes/js/jquery.min.js '></script>
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+function closemodal() {
+   $("#modal_prod").css("display", "none")
+}
+function openmodal() {
+   $("#modal_prod").css("display", "")
+}
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
+var formatter = new Intl.NumberFormat('vn-VN', { maximumSignificantDigits: 3 });
+$(document).ready(function() {
+   console.log("OK");
+   $(".xemtruoc").on('click', function(e){
+      let p_id = $(this).attr('data-prod')
+      $.ajax({
+        type: "GET",
+        contentType: "application/json",
+        url: "/index.php/product/api_product?id="+p_id,
+        dataType: 'json',
+        cache: false,
+        timeout: 600000,
+        success: function (data) {
+            console.log("data : ",data);
+            var img_arr = data.images;
+            var descriptions = data.descriptions;
+            var imgs_string = '';
+            var description_string = '';
+            var imgs_string_dot = '';
+            for (let index = 0; index < img_arr.length; index++) {
+               const element = img_arr[index];
+               imgs_string += `<div class="mySlides fade">
+                                 <div class="numbertext">1 \ 3</div>
+                                 <img src="${element.path}" style="width:100%">
+                              </div>`
+               imgs_string_dot+= `<span class="dot" onclick="currentSlide(${index+1})"></span>`;
+            }
+            for (let index = 0; index < descriptions.length; index++) {
+               const element = descriptions[index];
+               description_string += '<li aria-level="1">'+ element[0] + " : "+ element[1] + '</li>';
+            }
+            $("#img_arr")[0].innerHTML = imgs_string;
+            $("#img_arr_dot")[0].innerHTML = imgs_string_dot;
+            $(".posted_in")[0].innerHTML = "DANH MỤC: "+data.category;
+            $(".product-short-description")[0].innerHTML = '<ul>'+description_string+'</ul>';
+            // 
+            let price_string = '';
+            if (data.isSale == "1"){
+               price_string+= `<ins><span class="woocommerce-Price-amount amount">${formatter.format(data.price*(1-(data.saleAmount/100)))}<span class="woocommerce-Price-currencySymbol">₫</span></span></ins>`;
+            }
+            if (data.isSale == "2"){
+               price_string+= `<ins><span class="woocommerce-Price-amount amount">${formatter.format(data.price -(data.saleAmount/1))}<span class="woocommerce-Price-currencySymbol">₫</span></span></ins>`;
+            }
+            
+            $("#price-wrapper_mod")[0].innerHTML = '<p class="price product-page-price price-on-sale">'+`<del><span class="woocommerce-Price-amount amount">${formatter.format(data.price)}<span class="woocommerce-Price-currencySymbol">₫</span></span></del>`+price_string+ '</p></div>';
+            $("#img_arr")[0].innerHTML = imgs_string;
+            $("#gotoproduct").attr("href","index.php/product?id="+data.id)
+            $("#gotoproduct").attr("action","index.php/product?id="+data.id)
+            openmodal();
+            showSlides(1);
+
+        },
+        error: function (e) {
+            console.log("ERROR : ", e);
+        }
+    });
+   })
+});
+</script>
+</main>

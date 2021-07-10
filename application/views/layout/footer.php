@@ -143,7 +143,7 @@
             <span><img src="/style/wp-content/plugins/contact-me-on-zalo/assets/images/zalo-2.png" alt="Contact Me on Zalo"></span>
          </a>
       </div>
-      <link rel=' stylesheet ' id=' lv_css-css '  href=' /style/wp-content/plugins/quick-call-button/assets/css/quick-call-button1576.css?ver=1.2.1 ' type=' text/css ' media=' all ' />
+      <!-- <link rel=' stylesheet ' id=' lv_css-css '  href=' /style/wp-content/plugins/quick-call-button/assets/css/quick-call-button1576.css?ver=1.2.1 ' type=' text/css ' media=' all ' />
 
       <script type=' text/javascript ' src=' /style/wp-content/plugins/contact-form-7/includes/js/scripts3c21.js?ver=5.1.1 '></script>
       <script type=' text/javascript ' src=' /style/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min44fd.js?ver=2.70 '></script>
@@ -153,21 +153,21 @@
          /* <![CDATA[ */
          var woocommerce_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%"};
          /* ]]> */
-      </script>
-      <script type=' text/javascript ' src=' /style/wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.mina25a.js?ver=3.5.5 '></script>
-      <script type=' text/javascript '>
+      </script> -->
+      <!-- <script type=' text/javascript ' src=' /style/wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.mina25a.js?ver=3.5.5 '></script> -->
+      <!-- <script type=' text/javascript '>
          /* <![CDATA[ */
          var wc_cart_fragments_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%","cart_hash_key":"wc_cart_hash_c32198f57ab31ec727138169ce9031fc","fragment_name":"wc_fragments_c32198f57ab31ec727138169ce9031fc"};
          /* ]]> */
       </script>
-      <script type=' text/javascript ' src=' /style/wp-content/plugins/woocommerce/assets/js/frontend/cart-fragments.mina25a.js?ver=3.5.5 '></script>
+      <script type=' text/javascript ' src=' /style/wp-content/plugins/woocommerce/assets/js/frontend/cart-fragments.mina25a.js?ver=3.5.5 '></script> -->
       <script type=' text/javascript ' src=' /style/wp-content/plugins/yith-woocommerce-wishlist/assets/js/jquery.selectBox.min7359.js?ver=1.2.0 '></script>
-      <script type=' text/javascript '>
+      <!-- <script type=' text/javascript '>
          /* <![CDATA[ */
          var yith_wcwl_l10n = {"ajax_url":"\/wp-admin\/admin-ajax.php","redirect_to_cart":"no","multi_wishlist":"","hide_add_button":"1","is_user_logged_in":"","ajax_loader_url":"https:\/\/karofihaiduong.vn\/wp-content\/plugins\/yith-woocommerce-wishlist\/assets\/images\/ajax-loader.gif","remove_from_wishlist_after_add_to_cart":"yes","labels":{"cookie_disabled":"We are sorry, but this feature is available only if cookies are enabled on your browser.","added_to_cart_message":"<div class=\"woocommerce-message\">Product correctly added to cart<\/div>"},"actions":{"add_to_wishlist_action":"add_to_wishlist","remove_from_wishlist_action":"remove_from_wishlist","move_to_another_wishlist_action":"move_to_another_wishlsit","reload_wishlist_and_adding_elem_action":"reload_wishlist_and_adding_elem"}};
          /* ]]> */
-      </script>
-      <script type=' text/javascript ' src=' /style/wp-content/plugins/yith-woocommerce-wishlist/assets/js/jquery.yith-wcwl7888.js?ver=2.2.8 '></script>
+      </script> -->
+      <!-- <script type=' text/javascript ' src=' /style/wp-content/plugins/yith-woocommerce-wishlist/assets/js/jquery.yith-wcwl7888.js?ver=2.2.8 '></script> -->
       <script type=' text/javascript ' src=' /style/wp-includes/js/hoverIntent.minc245.js?ver=1.8.1 '></script>
       <script type=' text/javascript '>
          /* <![CDATA[ */
@@ -186,29 +186,17 @@
          /* ]]> */
       </script>
       <script type=' text/javascript ' src=' /style/wp-includes/js/wp-util.min9f89.js?ver=4.9.17 '></script>
-      <script type=' text/javascript '>
+      <!-- <script type=' text/javascript '>
          /* <![CDATA[ */
          var wc_add_to_cart_variation_params = {"wc_ajax_url":"\/?wc-ajax=%%endpoint%%","i18n_no_matching_variations_text":"R\u1ea5t ti\u1ebfc, kh\u00f4ng c\u00f3 s\u1ea3n ph\u1ea9m n\u00e0o ph\u00f9 h\u1ee3p v\u1edbi l\u1ef1a ch\u1ecdn c\u1ee7a b\u1ea1n. H\u00e3y ch\u1ecdn m\u1ed9t ph\u01b0\u01a1ng th\u1ee9c k\u1ebft h\u1ee3p kh\u00e1c.","i18n_make_a_selection_text":"Ch\u1ecdn c\u00e1c t\u00f9y ch\u1ecdn cho s\u1ea3n ph\u1ea9m tr\u01b0\u1edbc khi cho s\u1ea3n ph\u1ea9m v\u00e0o gi\u1ecf h\u00e0ng c\u1ee7a b\u1ea1n.","i18n_unavailable_text":"R\u1ea5t ti\u1ebfc, s\u1ea3n ph\u1ea9m n\u00e0y hi\u1ec7n kh\u00f4ng t\u1ed3n t\u1ea1i. H\u00e3y ch\u1ecdn m\u1ed9t ph\u01b0\u01a1ng th\u1ee9c k\u1ebft h\u1ee3p kh\u00e1c."};
          /* ]]> */
-      </script>
+      </script> -->
       <script type=' text/javascript ' src=' /style/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart-variation.mina25a.js?ver=3.5.5 '></script>
-      <script type=' text/javascript ' src=' /style/wp-content/plugins/quick-call-button/assets/js/drag-quick-call-button1576.js?ver=1.2.1 '></script>
-      <script type=' text/javascript '>
+      <!-- <script type=' text/javascript ' src=' /style/wp-content/plugins/quick-call-button/assets/js/drag-quick-call-button1576.js?ver=1.2.1 '></script> -->
+      <!-- <script type=' text/javascript '>
          /* <![CDATA[ */
          var _zxcvbnSettings = {"src":"https:\/\/karofihaiduong.vn\/wp-includes\/js\/zxcvbn.min.js"};
          /* ]]> */
-      </script>
-      <script type=' text/javascript ' src=' /style/wp-includes/js/zxcvbn-async.min5152.js?ver=1.0 '></script>
-      <script type=' text/javascript '>
-         /* <![CDATA[ */
-         var pwsL10n = {"unknown":"M\u1eadt kh\u1ea9u m\u1ea1nh kh\u00f4ng x\u00e1c \u0111\u1ecbnh","short":"R\u1ea5t y\u1ebfu","bad":"Y\u1ebfu","good":"Trung b\u00ecnh","strong":"M\u1ea1nh","mismatch":"M\u1eadt kh\u1ea9u kh\u00f4ng kh\u1edbp"};
-         /* ]]> */
-      </script>
-      <script type=' text/javascript ' src=' /style/wp-admin/js/password-strength-meter.min9f89.js?ver=4.9.17 '></script>
-      <script type=' text/javascript '>
-         /* <![CDATA[ */
-         var wc_password_strength_meter_params = {"min_password_strength":"3","i18n_password_error":"Vui l\u00f2ng nh\u1eadp m\u1eadt kh\u1ea9u kh\u00f3 h\u01a1n.","i18n_password_hint":"G\u1ee3i \u00fd: M\u1eadt kh\u1ea9u ph\u1ea3i c\u00f3 \u00edt nh\u1ea5t 12 k\u00fd t\u1ef1. \u0110\u1ec3 n\u00e2ng cao \u0111\u1ed9 b\u1ea3o m\u1eadt, s\u1eed d\u1ee5ng ch\u1eef in hoa, in th\u01b0\u1eddng, ch\u1eef s\u1ed1 v\u00e0 c\u00e1c k\u00fd t\u1ef1 \u0111\u1eb7c bi\u1ec7t nh\u01b0 ! \" ? $ % ^ & )."};
-         /* ]]> */
-      </script>
-      <script type=' text/javascript ' src=' /style/wp-content/plugins/woocommerce/assets/js/frontend/password-strength-meter.mina25a.js?ver=3.5.5 '></script>
+      </script> -->
+      <!-- <script type=' text/javascript ' src=' /style/wp-includes/js/zxcvbn-async.min5152.js?ver=1.0 '></script> -->
    </body>
