@@ -19,7 +19,6 @@
                 <div class="col">
                     <div class="row large-columns-1 medium-columns- small-columns-1">
                         <?php foreach ($blogs as $i => $bl) : ?>
-
                             <div class="media" style="margin: 10px 20px;display: flex;-ms-flex-align: start;align-items: flex-start;">
                             <a href="/index.php/blog/detail?id=<?= $bl->id ?>"><img src="<?= $bl->avatar ?>" width="100" height="100" alt="..." style="margin: 0px 20px;">
                                 </a>

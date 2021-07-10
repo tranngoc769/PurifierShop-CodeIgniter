@@ -38,8 +38,19 @@ class Blog_model extends CI_Model
     
     public function get_top5_blog()
     {
+
+        
         $data =  $this->db->select("MONTH(date) as month, DAY(date) as day,YEAR(date) as year, id, title, detail,avatar")
         ->order_by("date", "ASC")
+        ->get("blog");
+        return $data->result();
+    }
+    
+    public function get_sale_blog()
+    {
+        $data =  $this->db->select("MONTH(date) as month, DAY(date) as day,YEAR(date) as year, id, title, detail,avatar")
+        ->order_by("date", "ASC")
+        ->where("is_sale", 1)
         ->limit(5,0)
         ->get("blog");
         return $data->result();

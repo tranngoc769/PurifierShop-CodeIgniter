@@ -38,6 +38,24 @@
                     </div>
                 </div> <!-- end col -->
             </div>
+            
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Bài đăng khuyến mãi</h4>
+                            <div class="form-group row">
+                                <div class="col-md-12">
+                                    <select id="p_isSale" class="form-control" required>
+                                            <option value="0" <?php if ($blog->is_sale == 0): ?> selected <?php endif;?>> Không</option>
+                                            <option value="1" <?php if ($blog->is_sale == 1): ?> selected <?php endif;?>>Có</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- end col -->
+            </div>
             <!-- end row -->
             <div class="row">
                 <div class="col-12">

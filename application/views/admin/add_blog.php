@@ -28,6 +28,23 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
+                            <h4 class="card-title">Bài viết khuyến mãi</h4>
+                            <div class="form-group row">
+                                <div class="col-md-10">
+                                <select id="p_isSale" class="form-control" required>
+                                        <option value="0" selected>Không</option>
+                                        <option value="1">Có</option>
+                                </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- end col -->
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
                             <h4 class="card-title">Tải lên ảnh đại diện</h4>
                             </p>
                             <div>
@@ -104,7 +121,7 @@
 <script src="/style/admin/assets/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js"></script>
 <script src="/style/admin/assets/libs/bootstrap-maxlength/bootstrap-maxlength.min.js"></script>
 <script src="/style/admin/assets/libs/%40chenfengyuan/datepicker/datepicker.min.js"></script>
-        <script src="/style/admin/assets/libs/dropzone/min/dropzone.min.js"></script>
+<script src="/style/admin/assets/libs/dropzone/min/dropzone.min.js"></script>
 <script src="/style/admin/assets/libs/summernote/summernote-bs4.min.js"></script>
 <script src="/style/admin/assets/js/pages/form-editor.init.js"></script>
 <script src="/style/admin/assets/js/app.js"></script>

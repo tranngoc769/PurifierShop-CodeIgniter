@@ -242,6 +242,7 @@ $(document).ready(function() {
     $("#save_blog").on("click", function(e) {
         e.preventDefault();
         let title = $("#title").val();
+        let is_sale = $("#p_isSale").val();
         let file_arr = $("#images")[0].files;
         if (file_arr.length == 0) {
             swal("Thêm bài đăng", "Vui lòng chọn ít nhất 1 hình ảnh", "error");
@@ -256,6 +257,7 @@ $(document).ready(function() {
         var formData = new FormData();
         formData.append("title", title);
         formData.append("file", file_arr[0]);
+        formData.append("is_sale", is_sale);
         formData.append("detail", full_description);
         var settings = {
             url: "blog_add",
@@ -285,6 +287,7 @@ $(document).ready(function() {
         e.preventDefault();
         let id = $("#id").val();
         let title = $("#title").val();
+        let p_isSale = $("#p_isSale").val();
         if (title == "") {
             swal("Cập nhật bài đăng", "Điền title", "error");
             return;
@@ -294,6 +297,7 @@ $(document).ready(function() {
         var formData = new FormData();
         formData.append("id", id);
         formData.append("title", title);
+        formData.append("p_isSale", p_isSale);
         formData.append("detail", full_description);
         var settings = {
             url: "blog_update",

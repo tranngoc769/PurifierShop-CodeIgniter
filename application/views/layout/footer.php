@@ -20,10 +20,7 @@
                      <div class="flex-row recent-blog-posts align-top pt-half pb-half">
                         <div class="flex-col mr-half">
                            <div class="badge post-date badge-small badge-square">
-                              <div class="badge-inner bg-fill">
-                                 <span class="post-date-day"><?= $top10->day ?></span><br>
-                                 <span class="post-date-month is-xsmall">TH<?= $top10->month ?></span>
-                              </div>
+                              <img src="<?= $top10->avatar ?>" width="100" height="100" alt="..." >
                            </div>
                         </div>
                         <div class="flex-col flex-grow">

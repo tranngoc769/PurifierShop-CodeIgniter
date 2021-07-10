@@ -170,22 +170,24 @@
                <h3 class="section-title section-title-normal"><b></b><span class="section-title-main">KHUYẾN MÃI</span><b></b></h3>
             </div>
             <div class="row row-large row-divided ">
+               
+            <?php foreach ($sale_prod as $i => $top10) : ?>
                <div class="large-6 col">
                   <div class="row large-columns-1 medium-columns- small-columns-1">
                      <div class="col post-item">
                         <div class="col-inner">
-                        <a href="" class="plain">
+                        <a href="/index.php/blog/detail?id=<?= $top10->id ?>" class="plain">
                            <div class="box box-vertical box-text-bottom box-blog-post has-hover">
                               <div class="box-image" style="width:40%;">
                                  <div class="image-cover" style="padding-top:56%;">
-                                    <img width="400" height="400" src="/style/uploads/2021/05/cay-nuoc-nong-lanh-karofi-banner-up-website-04-jpg-1.jpg" sizes="max-width: 400px) 100vw, 400px">
+                                    <img width="400" height="400" src="<?= $top10->avatar ?>" sizes="max-width: 400px) 100vw, 400px">
                                  </div>
                               </div>
                               <div class="box-text text-left">
                                  <div class="box-text-inner blog-post-inner">
-                                    <h5 class="post-title is-large ">Bao lâu thay máy lọc nước là tốt nhất ?</h5>
+                                    <h5 class="post-title is-large "><?= $top10->title ?></h5>
                                     <div class="is-divider"></div>
-                                    <p class="from_the_blog_excerpt ">Máy lọc nước là sản phẩm không thể thiếu trong mối gia đình để bảo [...]</p>
+                                    <!-- <p class="from_the_blog_excerpt ">Máy lọc nước là sản phẩm không thể thiếu trong mối gia đình để bảo [...]</p> -->
                                  </div>
                               </div>
                            </a>
@@ -193,5 +195,6 @@
                      </div>
                   </div>
                </div>
+               <?php endforeach;?>
             </div>
          </main>

@@ -40,7 +40,9 @@ class Shop extends CI_Controller {
         $config['base_url'] = site_url('shop/index');
         $active['title'] = " - Home";
         $top5 = $this->blog_model->get_top5_blog();
+        $sale_prod = $this->blog_model->get_sale_blog();
         $data['top_5_blog'] = $top5;
+        $data['sale_prod'] = $sale_prod;
         $this->load->view('layout/head', $data);
         $this->load->view('index', $data);
         $this->load->view('layout/footer', $data);

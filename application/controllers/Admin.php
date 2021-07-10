@@ -314,8 +314,9 @@ class Admin extends CI_Controller
     {
         $id = $this->input->post("id");
         $title = $this->input->post("title");
+        $is_sale = $this->input->post("is_sale");
         $detail = $this->input->post("detail");
-        $up = array("title" => $title, "detail" => $detail, "date" => date('Y-m-d H:i:s'));
+        $up = array("title" => $title, "detail" => $detail, "is_sale" => $is_sale, "date" => date('Y-m-d H:i:s'));
         $ok = $this->blog_model->update_blog($id, $up);
         if (!$ok) {
             $array = array(
@@ -405,10 +406,11 @@ class Admin extends CI_Controller
         // 
         $title = $this->input->post("title");
         $detail = $this->input->post("detail");
+        $is_sale = $this->input->post("is_sale");
         $path =  $this->upload->do_upload('file');
         $i_path =  '/style/uploads/blogs/';
         if ($path) {
-            $up = array("avatar" => $i_path . $path, "title" => $title, "detail" => $detail, "date" => date('Y-m-d H:i:s'));
+            $up = array("avatar" => $i_path . $path, "title" => $title, "is_sale" => $is_sale, "detail" => $detail, "date" => date('Y-m-d H:i:s'));
             $ok = $this->blog_model->create_blog($up);
             if (!$ok) {
                 $array = array(
