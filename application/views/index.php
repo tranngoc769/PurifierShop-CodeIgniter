@@ -421,6 +421,8 @@ $(document).ready(function() {
                const element = descriptions[index];
                description_string += '<li aria-level="1">'+ element[0] + " : "+ element[1] + '</li>';
             }
+            $("#img_arr_dot").empty();
+            $("#img_arr").empty();
             $("#img_arr")[0].innerHTML = imgs_string;
             $("#img_arr_dot")[0].innerHTML = imgs_string_dot;
             $(".posted_in")[0].innerHTML = "DANH MỤC: "+data.category;
