@@ -102,7 +102,7 @@
                            <div class="box-image">
                               <div class="image-fade_in_back">
                               <a href="index.php/product?id=<?= $prod->p_id ?>">
-                                 <img style="width: 300px!importantheight: 300px !important;" width="300" height="300" src="<?=$prod->path?>" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" srcset="<?=$prod->path?> 300w, <?=$prod->path?> 280w, <?=$prod->path?> 400w, <?=$prod->path?> 600w, <?=$prod->path?> 100w"
+                                 <img style="width: 300px!important;height: 300px !important;" width="300" height="300" src="<?=$prod->path?>" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" srcset="<?=$prod->path?> 300w, <?=$prod->path?> 280w, <?=$prod->path?> 400w, <?=$prod->path?> 600w, <?=$prod->path?> 100w"
                                     sizes="(max-width: 300px) 100vw, 300px" /><img style="width: 300px!important;height: 300px !important;" width="300" height="300" src="<?=$prod->path?>" class="show-on-hover absolute fill hide-for-small back-image"
                                     alt="" srcset="<?=$prod->path?> 300w"
                                     sizes="(max-width: 300px) 100vw, 300px" /> </a>
@@ -165,5 +165,33 @@
                </div>
                <!-- END PRODUCT AREA -->
                <div class="gap-element" style="display:block; height:auto; padding-top:40px" class="clearfix"></div>
+            </div>
+            <div class="container section-title-container">
+               <h3 class="section-title section-title-normal"><b></b><span class="section-title-main">KHUYẾN MÃI</span><b></b></h3>
+            </div>
+            <div class="row row-large row-divided ">
+               <div class="large-6 col">
+                  <div class="row large-columns-1 medium-columns- small-columns-1">
+                     <div class="col post-item">
+                        <div class="col-inner">
+                        <a href="" class="plain">
+                           <div class="box box-vertical box-text-bottom box-blog-post has-hover">
+                              <div class="box-image" style="width:40%;">
+                                 <div class="image-cover" style="padding-top:56%;">
+                                    <img width="400" height="400" src="/style/uploads/2021/05/cay-nuoc-nong-lanh-karofi-banner-up-website-04-jpg-1.jpg" sizes="max-width: 400px) 100vw, 400px">
+                                 </div>
+                              </div>
+                              <div class="box-text text-left">
+                                 <div class="box-text-inner blog-post-inner">
+                                    <h5 class="post-title is-large ">Bao lâu thay máy lọc nước là tốt nhất ?</h5>
+                                    <div class="is-divider"></div>
+                                    <p class="from_the_blog_excerpt ">Máy lọc nước là sản phẩm không thể thiếu trong mối gia đình để bảo [...]</p>
+                                 </div>
+                              </div>
+                           </a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
             </div>
          </main>
