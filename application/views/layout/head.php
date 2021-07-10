@@ -43,7 +43,7 @@
       }
    </style>
    <meta name="description" content="Trung Tâm Máy Lọc Nước KAROFI | Số 207, Ngô Quyền, TP.<?= $keywords['name'] ?> | Hotline: <?= $keywords['hotline'] ?> - <?= $keywords['customer_care'] ?> |Vận Chuyển, Lắp Đặt, Bảo Hành miễn phí." />
-   <link rel="canonical" href="index.html" />
+   <link rel="canonical" href="/" />
    <meta property="og:locale" content="vi_VN" />
    <meta property="og:type" content="website" />
    <meta property="og:title" content="MÁY LỌC NƯỚC KAROFI - ĐẠI LÝ ỦY QUYỀN TẠI <?= strtoupper($keywords['name']) ?>" />
@@ -364,9 +364,9 @@
          }
       </style>
    </noscript>
-   <link rel="icon" href="wp-content/uploads/2019/02/favicon.png" sizes="32x32" />
-   <link rel="icon" href="wp-content/uploads/2019/02/favicon.png" sizes="192x192" />
-   <link rel="apple-touch-icon-precomposed" href="wp-content/uploads/2019/02/favicon.png" />
+   <link rel="icon" href="/style/wp-content/uploads/2019/02/favicon.png" sizes="32x32" />
+   <link rel="icon" href="/style/wp-content/uploads/2019/02/favicon.png" sizes="192x192" />
+   <link rel="apple-touch-icon-precomposed" href="/style/wp-content/uploads/2019/02/favicon.png" />
    <meta name="msapplication-TileImage" content="https://karofihaiduong.vn/wp-content/uploads/2019/02/favicon.png" />
    <style id="custom-css" type="text/css">
       :root {

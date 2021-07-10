@@ -86,7 +86,7 @@
                </div>
             </div>
          </li>
-         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-95 current_page_item menu-item-244"><a href="index.html" class="nav-top-link">Trang chủ</a></li>
+         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-95 current_page_item menu-item-244"><a href="/" class="nav-top-link">Trang chủ</a></li>
          <!-- <?php foreach ($categories as $i => $ct) : ?>
             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-229"><a href="/index.php/category?id=<?= $ct->id ?>" class="nav-top-link"><?= $ct->name ?></a></li>
          <?php endforeach; ?> -->

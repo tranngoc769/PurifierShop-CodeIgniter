@@ -50,7 +50,7 @@
                                 <div class="col-md-10">
                                     <select id="p_category" class="form-control" required>
                                         <?php foreach ($categories_par as $i => $cat) : ?>
-                                            <option value="<?= $cat->id ?>" <?php if ($cat->id == $product->c_id) : ?> selected <?php endif; ?>><?= $cat->c_name ?></option>
+                                            <option value="<?= $cat->c_id ?>" <?php if ($cat->c_id == $product->c_id) : ?> selected <?php endif; ?>><?= $cat->c_name ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
